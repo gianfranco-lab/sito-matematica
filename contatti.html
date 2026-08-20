@@ -1,51 +1,91 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contatti — Laboratorio di matematica</title><link rel="stylesheet" href="style.css">
-<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=oPPbdo-PWCXw0QoEECbXTawqZ6L9eN4lFZcKQvcFiD00bI6y2L6l99uun9CD4svYdUHFe8wtz2xAWZ66ecOtX8itOxq67BIy6-5hdfAFWqnZ1vmFo-jz1vayQJWaY8wp0ZVdk368e_15JMOnZbktgmnCuZdgee1up6lVEPBQXQ1vJOzlAlWThfeA6nJhTB5C50ZKvS-rZOyawskUmcD_UbS9RLdB-y1Ek6L8PER-x2zmRCCaPM52uO4u7AT8k5sbPZgWb-g7KFStfgM-2aQB6vyiztSi9h-RHHVTnH654Fydn95cyRr0dIMqL9ZQxuwan0ZefIZ7hf302FAFJX97eQ" charset="UTF-8"></script><style>
-.btn.is-sending{
-  opacity:.72;
-  cursor:wait;
-}
-</style>
-</head><body><nav><strong>MATEMATICA · LABORATORIO</strong>
-<a href="index.html">Home</a><a href="chi-sono.html">Chi sono</a><a href="come-lavoro.html">Come lavoro</a><a href="matematica.html">Matematica</a><a href="contatti.html">Contatti</a></nav><main><section class="hero"><div class="hero-inner"><div class="eyebrow">Contatti</div>
-<h1>Da dove vuoi cominciare?</h1><p class="lead">Se sei arrivato fin qui, probabilmente hai già capito che non propongo semplicemente un'ora di ripetizioni.</p></div></section>
-<section><div class="grid"><div><h2>Scrivimi</h2><p>Non serve preparare una relazione. Parlami degli argomenti che vorresti affrontare e del tipo di difficoltà che incontri.</p>
-<p class="small">La richiesta verrà utilizzata esclusivamente per risponderti e valutare insieme un eventuale percorso di lezioni.</p></div>
-<form id="contact-form" action="https://forms.formward.eu/f/a626597b-7d75-4a44-9bad-97db9e15b0bf" method="POST">
-<label>Nome<input type="text" name="name" placeholder="Il tuo nome" autocomplete="name" required></label>
-<label>Scuola / Università<input type="text" name="scuola_universita" placeholder="Istituto o facoltà"></label>
-<label>Cosa stai studiando?<input type="text" name="argomento_corso" placeholder="Argomento o corso"></label>
-<label>Email alla quale rispondere<input type="email" name="email" placeholder="nome@esempio.it" autocomplete="email" required></label>
-<label>Parlami di quali argomenti vorresti vedere con me e che tipo di difficoltà incontri<textarea name="message" placeholder="Indica gli argomenti che vorresti affrontare e raccontami brevemente quali difficoltà incontri." required></textarea></label>
-<input type="hidden" name="_next" value="https://gianfranco-lab.github.io/sito-matematica/grazie.html">
-<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-<p class="small">I dati che inserisci saranno utilizzati esclusivamente per gestire e rispondere alla tua richiesta. <a href="privacy.html">Leggi l’Informativa Privacy.</a></p>
-<button id="submit-button" class="btn" type="submit">PARLIAMONE</button></form></div></section>
-<section><h2>Il primo contatto</h2><p>La richiesta verrà raccolta e potrò leggerla con calma, valutando il modo più adatto per risponderti.</p>
-<div class="card"><h3>Se sei un genitore</h3><p>Puoi contattarmi direttamente. Sarà comunque importante che, quando possibile, sia lo studente a partecipare alla scelta di iniziare il percorso.</p></div></section>
-<section><div class="quote">Non devi arrivare da me già sapendo esattamente di cosa hai bisogno. Parte del mio lavoro è aiutarti a capirlo.</div></section></main><footer>Prototipo sito V2 · contenuti in fase di progettazione</footer>
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contatti — Laboratorio di matematica</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <strong>MATEMATICA · LABORATORIO</strong>
+  <a href="index.html">Home</a>
+  <a href="chi-sono.html">Chi sono</a>
+  <a href="come-lavoro.html">Come lavoro</a>
+  <a href="matematica.html">Matematica</a>
+  <a href="contatti.html">Contatti</a>
+</nav>
 
-<script>
-(function () {
-  const form = document.getElementById('contact-form');
-  const button = document.getElementById('submit-button');
-  if (!form || !button) return;
+<main>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Contatti</div>
+      <h1>Da dove vuoi cominciare?</h1>
+      <p class="lead">Se sei arrivato fin qui, probabilmente hai già capito che non propongo semplicemente un'ora di ripetizioni.</p>
+    </div>
+  </section>
 
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
+  <section>
+    <div class="grid">
+      <div>
+        <h2>Scrivimi</h2>
+        <p>Non serve preparare una relazione. Parlami degli argomenti che vorresti affrontare e del tipo di difficoltà che incontri.</p>
+        <p class="small">La richiesta verrà utilizzata esclusivamente per risponderti e valutare insieme un eventuale percorso di lezioni.</p>
+      </div>
 
-    button.disabled = true;
-    button.classList.add('is-sending');
-    button.textContent = 'INVIO IN CORSO...';
+      <form action="https://forms.formward.eu/f/a626597b-7d75-4a44-9bad-97db9e15b0bf" method="POST">
+        <label>
+          Nome
+          <input type="text" name="name" placeholder="Il tuo nome" autocomplete="name" required>
+        </label>
 
-    // Lascia al browser il tempo di ridisegnare il pulsante,
-    // poi esegue il normale invio HTML del modulo.
-    requestAnimationFrame(function () {
-      setTimeout(function () {
-        form.submit();
-      }, 150);
-    });
-  });
-})();
-</script>
+        <label>
+          Scuola / Università
+          <input type="text" name="scuola_universita" placeholder="Istituto o facoltà">
+        </label>
 
-</body></html>
+        <label>
+          Cosa stai studiando?
+          <input type="text" name="argomento_corso" placeholder="Argomento o corso">
+        </label>
+
+        <label>
+          Email alla quale rispondere
+          <input type="email" name="email" placeholder="nome@esempio.it" autocomplete="email" required>
+        </label>
+
+        <label>
+          Parlami di quali argomenti vorresti vedere con me e che tipo di difficoltà incontri
+          <textarea name="message" placeholder="Indica gli argomenti che vorresti affrontare e raccontami brevemente quali difficoltà incontri." required></textarea>
+        </label>
+
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+        <p class="small">
+          I dati che inserisci saranno utilizzati esclusivamente per gestire e rispondere alla tua richiesta.
+          <a href="privacy.html">Leggi l’Informativa Privacy.</a>
+        </p>
+
+        <button class="btn" type="submit">PARLIAMONE</button>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <h2>Il primo contatto</h2>
+    <p>La richiesta verrà raccolta e potrò leggerla con calma, valutando il modo più adatto per risponderti.</p>
+
+    <div class="card">
+      <h3>Se sei un genitore</h3>
+      <p>Puoi contattarmi direttamente. Sarà comunque importante che, quando possibile, sia lo studente a partecipare alla scelta di iniziare il percorso.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="quote">Non devi arrivare da me già sapendo esattamente di cosa hai bisogno. Parte del mio lavoro è aiutarti a capirlo.</div>
+  </section>
+</main>
+
+<footer>Prototipo sito V2 · contenuti in fase di progettazione</footer>
+</body>
+</html>
