@@ -1,5 +1,5 @@
 <!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contatti — Laboratorio di matematica</title><link rel="stylesheet" href="style.css">
-<style>
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=FMhYH8u0N40sK0-ri-O1hHw0FZuqYeVr0z6jrE7PU5C60mZddNkSK99JrC1OTZn9hZfSVSNcFltlq7d_--MaUajwBYTNBBseyrmFYrX8r5328XoCt577OMbJCBX6O-7aAtatn37WJtxD1eOGOH7I3z3Ox6Cp_3Z63jeFlWZG2pbGo-MoQOJRnIHuSgqlH841g3AGDU8q333Fl1Ex6jnIEIiorfUgrybcck340YJDOG803w8ERgKKKdsjlucQeid9V3zqxgzdLQJLmBhO2kq5fwnxntVc_uCdJ6zSjQuNok-273Oi1hNaRPwcqNxmbTCZ" charset="UTF-8"></script><style>
 .btn.is-sending{
   opacity:.72;
   cursor:wait;
@@ -16,24 +16,36 @@
 <label>Cosa stai studiando?<input type="text" name="argomento_corso" placeholder="Argomento o corso"></label>
 <label>Email alla quale rispondere<input type="email" name="email" placeholder="nome@esempio.it" autocomplete="email" required></label>
 <label>Parlami di quali argomenti vorresti vedere con me e che tipo di difficoltà incontri<textarea name="message" placeholder="Indica gli argomenti che vorresti affrontare e raccontami brevemente quali difficoltà incontri." required></textarea></label>
-<input type="hidden" name="_redirect" value="https://gianfranco-lab.github.io/sito-matematica/grazie.html">
+<input type="hidden" name="_next" value="https://gianfranco-lab.github.io/sito-matematica/grazie.html">
 <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 <p class="small">Inviando il modulo, i dati indicati saranno usati esclusivamente per gestire e rispondere alla tua richiesta.</p>
 <button id="submit-button" class="btn" type="submit">PARLIAMONE</button></form></div></section>
 <section><h2>Il primo contatto</h2><p>La richiesta verrà raccolta e potrò leggerla con calma, valutando il modo più adatto per risponderti.</p>
 <div class="card"><h3>Se sei un genitore</h3><p>Puoi contattarmi direttamente. Sarà comunque importante che, quando possibile, sia lo studente a partecipare alla scelta di iniziare il percorso.</p></div></section>
 <section><div class="quote">Non devi arrivare da me già sapendo esattamente di cosa hai bisogno. Parte del mio lavoro è aiutarti a capirlo.</div></section></main><footer>Prototipo sito V2 · contenuti in fase di progettazione</footer>
+
 <script>
 (function () {
   const form = document.getElementById('contact-form');
   const button = document.getElementById('submit-button');
   if (!form || !button) return;
 
-  form.addEventListener('submit', function () {
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
     button.disabled = true;
     button.classList.add('is-sending');
     button.textContent = 'INVIO IN CORSO...';
+
+    // Lascia al browser il tempo di ridisegnare il pulsante,
+    // poi esegue il normale invio HTML del modulo.
+    requestAnimationFrame(function () {
+      setTimeout(function () {
+        form.submit();
+      }, 150);
+    });
   });
 })();
 </script>
+
 </body></html>
