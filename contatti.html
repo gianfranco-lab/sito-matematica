@@ -1,13 +1,17 @@
 <!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contatti — Laboratorio di matematica</title><link rel="stylesheet" href="style.css"></head><body><nav><strong>MATEMATICA · LABORATORIO</strong>
 <a href="index.html">Home</a><a href="chi-sono.html">Chi sono</a><a href="come-lavoro.html">Come lavoro</a><a href="matematica.html">Matematica</a><a href="contatti.html">Contatti</a></nav><main><section class="hero"><div class="hero-inner"><div class="eyebrow">Contatti</div>
 <h1>Da dove vuoi cominciare?</h1><p class="lead">Se sei arrivato fin qui, probabilmente hai già capito che non propongo semplicemente un'ora di ripetizioni.</p></div></section>
-<section><div class="grid"><div><h2>Scrivimi</h2><p>Non serve preparare una relazione. Raccontami brevemente cosa ti ha portato fin qui.</p>
-<p class="small">Il modulo è un prototipo: nella versione online collegheremo il pulsante a un sistema reale di raccolta delle richieste, con notifica email.</p></div>
-<form><label>Nome<input type="text" placeholder="Il tuo nome"></label><label>Età<input type="number" placeholder="Età"></label>
-<label>Scuola / Università<input type="text" placeholder="Istituto o facoltà"></label><label>Cosa stai studiando?<input type="text" placeholder="Argomento o corso"></label>
-<label>Email alla quale rispondere<input type="email" placeholder="nome@esempio.it"></label>
-<label>Parlami di quali argomenti vorresti vedere con me e che tipo di difficoltà incontri<textarea placeholder="Indica gli argomenti che vorresti affrontare e raccontami brevemente quali difficoltà incontri."></textarea></label>
-<button class="btn" type="button">PARLIAMONE</button></form></div></section>
+<section><div class="grid"><div><h2>Scrivimi</h2><p>Non serve preparare una relazione. Parlami degli argomenti che vorresti affrontare e del tipo di difficoltà che incontri.</p>
+<p class="small">La richiesta verrà utilizzata esclusivamente per risponderti e valutare insieme un eventuale percorso di lezioni.</p></div>
+<form action="https://forms.formward.eu/f/a626597b-7d75-4a44-9bad-97db9e15b0bf" method="POST">
+<label>Nome<input type="text" name="name" placeholder="Il tuo nome" autocomplete="name" required></label>
+<label>Scuola / Università<input type="text" name="scuola_universita" placeholder="Istituto o facoltà"></label>
+<label>Cosa stai studiando?<input type="text" name="argomento_corso" placeholder="Argomento o corso"></label>
+<label>Email alla quale rispondere<input type="email" name="email" placeholder="nome@esempio.it" autocomplete="email" required></label>
+<label>Parlami di quali argomenti vorresti vedere con me e che tipo di difficoltà incontri<textarea name="message" placeholder="Indica gli argomenti che vorresti affrontare e raccontami brevemente quali difficoltà incontri." required></textarea></label>
+<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+<p class="small">Inviando il modulo, i dati indicati saranno usati esclusivamente per gestire e rispondere alla tua richiesta.</p>
+<button class="btn" type="submit">PARLIAMONE</button></form></div></section>
 <section><h2>Il primo contatto</h2><p>La richiesta verrà raccolta e potrò leggerla con calma, valutando il modo più adatto per risponderti.</p>
 <div class="card"><h3>Se sei un genitore</h3><p>Puoi contattarmi direttamente. Sarà comunque importante che, quando possibile, sia lo studente a partecipare alla scelta di iniziare il percorso.</p></div></section>
 <section><div class="quote">Non devi arrivare da me già sapendo esattamente di cosa hai bisogno. Parte del mio lavoro è aiutarti a capirlo.</div></section></main><footer>Prototipo sito V2 · contenuti in fase di progettazione</footer></body></html>
