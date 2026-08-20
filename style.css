@@ -8,9 +8,23 @@ h1{font-size:clamp(2.6rem,6vw,5.3rem);line-height:1.02;margin:18px 0 24px;font-w
 .lead{font-size:1.35rem;color:var(--muted);max-width:760px}section{padding:90px 7vw;border-top:1px solid var(--line)}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
 .card{background:var(--card);border:1px solid var(--line);padding:28px;border-radius:8px}.quote{font-size:1.55rem;font-style:italic;border-left:4px solid var(--accent2);padding:12px 24px;margin:30px 0}
-.btn{display:inline-block;background:var(--ink);color:white;padding:13px 20px;border-radius:5px;text-decoration:none;font:600 .9rem Arial,sans-serif;letter-spacing:.04em;margin:5px 5px 5px 0}
-.btn.secondary{background:transparent;color:var(--ink);border:1px solid var(--ink)}.small{font-size:.92rem;color:var(--muted)}
+.btn{display:inline-block;background:var(--card);color:var(--ink);border:1px solid var(--ink);padding:13px 20px;border-radius:5px;text-decoration:none;font:600 .9rem Arial,sans-serif;letter-spacing:.04em;margin:5px 5px 5px 0}
+.btn:hover{background:var(--paper)}
+.btn.secondary{background:var(--card);color:var(--ink);border:1px solid var(--ink)}.small{font-size:.92rem;color:var(--muted)}
 .tag{display:inline-block;border:1px solid var(--accent2);padding:5px 9px;border-radius:20px;font:600 .75rem Arial,sans-serif;color:var(--accent)}
 form{display:grid;gap:14px;max-width:700px}label{font:600 .85rem Arial,sans-serif}input,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:5px;background:white;font:1rem Georgia,serif}textarea{min-height:150px}
 footer{padding:45px 7vw;text-align:center;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
 @media(max-width:760px){.grid,.grid3{grid-template-columns:1fr}.hero{min-height:auto;padding-top:65px;padding-bottom:65px}section{padding-top:65px;padding-bottom:65px}nav a{font-size:.8rem}}
+
+.lavagna-avvisi{
+  max-width:720px;
+  margin:22px auto 0;
+  padding:12px 22px;
+  background:#355c4a;
+  color:#fff;
+  border:1px solid #29483a;
+  border-radius:6px;
+  text-align:center;
+  box-shadow:0 2px 8px rgba(31,41,51,.08);
+}
+.lavagna-avvisi p{margin:0;font-size:1rem;letter-spacing:.01em}
