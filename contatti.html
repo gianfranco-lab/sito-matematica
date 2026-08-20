@@ -4,26 +4,6 @@
   opacity:.72;
   cursor:wait;
 }
-.btn.is-success{
-  background:#5f6f5c;
-  border-color:#5f6f5c;
-}
-.form-status{
-  margin-top:18px;
-  padding:18px 20px;
-  border:1px solid var(--line);
-  border-radius:6px;
-  background:var(--card);
-}
-.form-status h3{
-  margin-top:0;
-}
-.form-status.error{
-  border-color:#9b6b62;
-}
-.form-status[hidden]{
-  display:none;
-}
 </style>
 </head><body><nav><strong>MATEMATICA · LABORATORIO</strong>
 <a href="index.html">Home</a><a href="chi-sono.html">Chi sono</a><a href="come-lavoro.html">Come lavoro</a><a href="matematica.html">Matematica</a><a href="contatti.html">Contatti</a></nav><main><section class="hero"><div class="hero-inner"><div class="eyebrow">Contatti</div>
@@ -36,11 +16,10 @@
 <label>Cosa stai studiando?<input type="text" name="argomento_corso" placeholder="Argomento o corso"></label>
 <label>Email alla quale rispondere<input type="email" name="email" placeholder="nome@esempio.it" autocomplete="email" required></label>
 <label>Parlami di quali argomenti vorresti vedere con me e che tipo di difficoltà incontri<textarea name="message" placeholder="Indica gli argomenti che vorresti affrontare e raccontami brevemente quali difficoltà incontri." required></textarea></label>
+<input type="hidden" name="_redirect" value="https://gianfranco-lab.github.io/sito-matematica/grazie.html">
 <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 <p class="small">Inviando il modulo, i dati indicati saranno usati esclusivamente per gestire e rispondere alla tua richiesta.</p>
-<button id="submit-button" class="btn" type="submit">PARLIAMONE</button>
-<div id="form-status" class="form-status" hidden aria-live="polite"></div>
-</form></div></section>
+<button id="submit-button" class="btn" type="submit">PARLIAMONE</button></form></div></section>
 <section><h2>Il primo contatto</h2><p>La richiesta verrà raccolta e potrò leggerla con calma, valutando il modo più adatto per risponderti.</p>
 <div class="card"><h3>Se sei un genitore</h3><p>Puoi contattarmi direttamente. Sarà comunque importante che, quando possibile, sia lo studente a partecipare alla scelta di iniziare il percorso.</p></div></section>
 <section><div class="quote">Non devi arrivare da me già sapendo esattamente di cosa hai bisogno. Parte del mio lavoro è aiutarti a capirlo.</div></section></main><footer>Prototipo sito V2 · contenuti in fase di progettazione</footer>
@@ -48,59 +27,12 @@
 (function () {
   const form = document.getElementById('contact-form');
   const button = document.getElementById('submit-button');
-  const status = document.getElementById('form-status');
+  if (!form || !button) return;
 
-  if (!form || !button || !status) return;
-
-  form.addEventListener('submit', async function (event) {
-    event.preventDefault();
-
-    const originalText = 'PARLIAMONE';
+  form.addEventListener('submit', function () {
     button.disabled = true;
-    button.classList.remove('is-success');
     button.classList.add('is-sending');
     button.textContent = 'INVIO IN CORSO...';
-
-    status.hidden = true;
-    status.className = 'form-status';
-    status.innerHTML = '';
-
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (!response.ok) {
-        throw new Error('Invio non riuscito');
-      }
-
-      button.classList.remove('is-sending');
-      button.classList.add('is-success');
-      button.textContent = 'MESSAGGIO INVIATO';
-
-      form.querySelectorAll('input, textarea').forEach(function (field) {
-        if (field.name !== '_gotcha') field.disabled = true;
-      });
-
-      status.innerHTML =
-        '<h3>Grazie, ho ricevuto il tuo messaggio.</h3>' +
-        '<p>Lo leggerò con attenzione e ti risponderò all\\'indirizzo che hai indicato.</p>' +
-        '<p><a class="btn secondary" href="index.html">TORNA ALLA HOME</a></p>';
-      status.hidden = false;
-
-    } catch (error) {
-      button.disabled = false;
-      button.classList.remove('is-sending', 'is-success');
-      button.textContent = originalText;
-
-      status.classList.add('error');
-      status.innerHTML =
-        '<h3>Il messaggio non è stato inviato.</h3>' +
-        '<p>Riprova tra qualche momento. Se il problema continua, torna più tardi.</p>';
-      status.hidden = false;
-    }
   });
 })();
 </script>
