@@ -16,6 +16,7 @@ form{display:grid;gap:14px;max-width:700px}label{font:600 .85rem Arial,sans-seri
 footer{padding:45px 7vw;text-align:center;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
 @media(max-width:760px){.grid,.grid3{grid-template-columns:1fr}.hero{min-height:auto;padding-top:65px;padding-bottom:65px}section{padding-top:65px;padding-bottom:65px}nav a{font-size:.8rem}}
 
+
 /* Home: contenuto + lavagna laterale */
 .home-hero{
   display:grid;
@@ -30,24 +31,13 @@ footer{padding:45px 7vw;text-align:center;border-top:1px solid var(--line);color
 
 .lavagna-avvisi{
   width:280px;
-  min-height:365px;
-  padding:34px 28px;
-  background:#355c4a;
-  color:#fff;
-  border:3px solid #263f34;
+  aspect-ratio:1102 / 1344;
+  background-image:url("lavagna-home.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
   border-radius:38px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
   box-shadow:0 3px 10px rgba(31,41,51,.10);
-}
-
-.lavagna-avvisi p{
-  margin:0;
-  font-size:1.12rem;
-  line-height:1.55;
-  letter-spacing:.01em;
 }
 
 @media(max-width:900px){
@@ -57,8 +47,7 @@ footer{padding:45px 7vw;text-align:center;border-top:1px solid var(--line);color
   }
   .lavagna-avvisi{
     width:min(100%, 420px);
-    min-height:150px;
-    border-radius:24px;
     justify-self:start;
+    border-radius:28px;
   }
 }
