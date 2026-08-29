@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Dietro la lavagna — Laboratorio di matematica</title>
   <link rel="stylesheet" href="style.css">
-<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Bo5TvTogGyE0Ow58pbfo4QOML3QIxiaXEC1mP2_eTEALarCcn5cbB47OBHwTJ2VLeoaMtAz4lMXOlOP_ftqTvLY3rklN9nsHjTbTeDlPe72fmEa7F666w4NXZuRdEdBxgrfu62c2vLJHsCWShgDsL7Js4peHl6gaAzgWF_Gtm99OwwQ4ynUgBnk1GunmnVjSVmius3q87Cy4Xc_IxV5vEiAMDiDnmlUBnDt4hp52Q5PR5J0IFzBi2u4Cb7mp9KhRfVXeKvcrHGHZioo7Ol5i76LepQnAdzLDBxTkh2zXAsFsVKTWMl89UPkwISNBGWSJ" charset="UTF-8"></script></head>
+</head>
 <body>
 
 <nav>
@@ -62,9 +62,552 @@
 
     </div>
   </section>
+
+  <section class="test-section">
+    <div class="eyebrow">Mettiti alla prova</div>
+    <h2>Due test per capire da dove partire</h2>
+    <p class="lead test-lead">
+      Non sono esami e non assegnano un punteggio. Servono a osservare quali strumenti
+      sono già familiari, quali meritano di essere ripresi e quali non sono stati ancora affrontati.
+    </p>
+
+    <div class="lavagna-list test-list">
+      <details class="lavagna-item test-item">
+        <summary>TEST · COME ARRIVI AL TRIENNIO?</summary>
+        <div class="lavagna-content">
+          <p class="lavagna-note">
+            Quindici domande rivolte a chi frequenta la terza superiore. Tieni a portata
+            di mano carta e penna: alcuni passaggi vanno provati, non soltanto immaginati.
+          </p>
+          <div class="orientation-test" data-test-id="triennio"></div>
+        </div>
+      </details>
+
+      <details class="lavagna-item test-item">
+        <summary>TEST · VERSO IL PRIMO ANNO UNIVERSITARIO</summary>
+        <div class="lavagna-content">
+          <p class="lavagna-note">
+            Quindici domande per chi sta per iniziare un corso universitario nel quale è
+            prevista Matematica generale. Anche qui il risultato non è un voto.
+          </p>
+          <div class="orientation-test" data-test-id="universita"></div>
+        </div>
+      </details>
+    </div>
+
+    <noscript>
+      <p class="small">Per svolgere i test è necessario attivare JavaScript nel browser.</p>
+    </noscript>
+  </section>
 </main>
 
 <footer>Prototipo sito V2 · contenuti in fase di progettazione</footer>
+
+<script>
+  (() => {
+    const NON_AFFRONTATO = "Non abbiamo ancora affrontato questo argomento.";
+    const LETTERE = ["A", "B", "C", "D", "E"];
+
+    const frazione = (numeratore, denominatore) =>
+      `<span class="math-frac"><span>${numeratore}</span><span>${denominatore}</span></span>`;
+
+    const radice = (contenuto) =>
+      `<span class="math-root"><span>${contenuto}</span></span>`;
+
+    const sistema = (...righe) =>
+      `<span class="math-system">${righe.map((riga) => `<span>${riga}</span>`).join("")}</span>`;
+
+    const tests = {
+      triennio: {
+        title: "Come arrivi al triennio?",
+        description: "Il test non assegna un punteggio. Affronta una domanda alla volta e scegli con sincerità anche quando un argomento non è stato ancora svolto.",
+        questions: [
+          {
+            topic: "Frazioni",
+            title: "Frazioni",
+            prompt: "Calcola tre quarti meno il prodotto tra un mezzo e due terzi.",
+            formula: `${frazione("3", "4")} − (${frazione("1", "2")} × ${frazione("2", "3")})`,
+            options: [frazione("5", "12"), frazione("1", "6"), frazione("1", "2"), frazione("7", "12")],
+            correct: 0,
+            explanation: `Prima si esegue la moltiplicazione: ${frazione("1", "2")} × ${frazione("2", "3")} = ${frazione("1", "3")}. La differenza vale quindi ${frazione("5", "12")}.`
+          },
+          {
+            topic: "Potenze",
+            title: "Potenze",
+            prompt: "Calcola la seguente espressione.",
+            formula: "(2<sup>3</sup> × 2<sup>5</sup>) ÷ (2<sup>2</sup>)<sup>3</sup>",
+            options: ["8", "2", "4", "16"],
+            correct: 2,
+            explanation: "Gli esponenti diventano 3 + 5 − 6 = 2; il risultato è quindi 2² = 4."
+          },
+          {
+            topic: "Percentuali",
+            title: "Percentuali",
+            prompt: "Un articolo costa 100 euro. Il prezzo viene prima aumentato del 20% e successivamente ridotto del 20%. Qual è il prezzo finale?",
+            options: ["100 euro", "80 euro", "104 euro", "96 euro"],
+            correct: 3,
+            explanation: "Dopo l’aumento il prezzo è 120 euro. La riduzione del 20% si applica a 120 euro e vale 24 euro: il prezzo finale è 96 euro."
+          },
+          {
+            topic: "Calcolo letterale",
+            title: "Calcolo letterale",
+            prompt: "Riduci la seguente espressione.",
+            formula: "3(2x − 1) − 2(x + 4)",
+            options: ["4x + 1", "8x − 11", "4x − 11", "4x + 5"],
+            correct: 2,
+            explanation: "Distribuendo correttamente i coefficienti si ottiene 6x − 3 − 2x − 8 = 4x − 11."
+          },
+          {
+            topic: "Prodotti notevoli",
+            title: "Prodotti notevoli e scomposizioni",
+            prompt: "Quale scomposizione corrisponde al trinomio seguente?",
+            formula: "4x<sup>2</sup> − 12x + 9",
+            options: ["(4x − 3)<sup>2</sup>", "(2x − 3)<sup>2</sup>", "(2x + 3)(2x − 3)", "(4x − 3)(x − 3)"],
+            correct: 1,
+            explanation: "Il trinomio è il quadrato di 2x − 3: (2x − 3)² = 4x² − 12x + 9."
+          },
+          {
+            topic: "Equazione di primo grado",
+            title: "Equazione di primo grado",
+            prompt: "Qual è la soluzione dell’equazione?",
+            formula: `${frazione("x − 1", "2")} + ${frazione("x + 3", "4")} = 4`,
+            options: ["x = 5", "x = 4", "x = 15", "x = −5"],
+            correct: 0,
+            explanation: "Eliminando i denominatori si ottiene 2x − 2 + x + 3 = 16, quindi 3x + 1 = 16 e x = 5."
+          },
+          {
+            topic: "Disequazione di primo grado",
+            title: "Disequazione di primo grado",
+            prompt: "Qual è la soluzione della disequazione?",
+            formula: "3 − 2x ≥ 7",
+            options: ["x ≥ −2", "x ≤ −2", "x ≥ 2", "x ≤ 2"],
+            correct: 1,
+            explanation: "Si arriva a −2x ≥ 4. Dividendo per −2, il verso della disuguaglianza deve essere invertito: x ≤ −2."
+          },
+          {
+            topic: "Sistema lineare",
+            title: "Sistema lineare",
+            prompt: "Quale coppia ordinata (x, y) rappresenta la soluzione del sistema?",
+            formula: sistema("x + y = 7", "2x − y = 2"),
+            options: ["(3, 4)", "(4, 3)", "(2, 5)", "(5, 2)"],
+            correct: 0,
+            explanation: "Sommando le due equazioni si ricava 3x = 9, quindi x = 3 e y = 4."
+          },
+          {
+            topic: "Radicali",
+            title: "Radicali",
+            prompt: "Qual è la forma semplificata dell’espressione?",
+            formula: radice("72"),
+            options: [`6${radice("2")}`, `8${radice("2")}`, `12${radice("2")}`, `36${radice("2")}`],
+            correct: 0,
+            explanation: `Poiché 72 = 36 × 2, ${radice("72")} = ${radice("36")} · ${radice("2")} = 6${radice("2")}.`
+          },
+          {
+            topic: "Piano cartesiano",
+            title: "Piano cartesiano",
+            prompt: "Quale delle seguenti rette passa per entrambi i punti A(1, 2) e B(3, 6)?",
+            options: ["y = x + 1", "y = 2x", "y = 2x + 1", "y = 3x − 1"],
+            correct: 1,
+            explanation: "Sostituendo le coordinate, entrambi i punti soddisfano l’equazione y = 2x."
+          },
+          {
+            topic: "Costruzione geometrica",
+            title: "Costruzione geometrica",
+            prompt: "Sono dati una circonferenza di centro O e un punto P esterno ad essa. Quale costruzione permette di individuare i punti di tangenza delle due rette tangenti condotte da P? Prova anche a realizzarla su carta.",
+            options: [
+              "Si individua il punto medio M del segmento OP e si traccia la circonferenza con centro M e raggio MO. Le intersezioni con la circonferenza iniziale sono i punti di tangenza.",
+              "Si traccia la retta perpendicolare a OP passante per P. Le sue intersezioni con la circonferenza sono i punti di tangenza.",
+              "Si traccia una circonferenza con centro P e raggio OP. Le intersezioni con la circonferenza iniziale sono i punti di tangenza.",
+              "Si traccia un diametro della circonferenza iniziale perpendicolare a OP e si uniscono i suoi estremi con P."
+            ],
+            correct: 0,
+            explanation: "La circonferenza costruita ha OP come diametro. Per il teorema di Talete, i raggi condotti ai punti d’intersezione sono perpendicolari alle rette passanti per P, che risultano quindi tangenti."
+          },
+          {
+            topic: "Dal problema all’equazione",
+            title: "Dal problema all’equazione",
+            prompt: "Un rettangolo ha il perimetro di 34 centimetri. La base supera l’altezza di 5 centimetri. Indicando con x la misura dell’altezza, quale equazione rappresenta correttamente il problema?",
+            options: ["x + (x + 5) = 34", "2x + (x + 5) = 34", "2[x + (x + 5)] = 34", "x(x + 5) = 34"],
+            correct: 2,
+            explanation: "La base misura x + 5 e il perimetro è il doppio della somma tra altezza e base: 2[x + (x + 5)] = 34."
+          },
+          {
+            topic: "Equazione di secondo grado",
+            title: "Equazione di secondo grado",
+            prompt: "Quali sono le soluzioni dell’equazione?",
+            formula: "x<sup>2</sup> − 5x + 6 = 0",
+            options: ["x = 2 oppure x = 3", "x = −2 oppure x = −3", "x = 1 oppure x = 6", "x = −1 oppure x = −6"],
+            correct: 0,
+            explanation: "Il trinomio si scompone in (x − 2)(x − 3), quindi le soluzioni sono x = 2 e x = 3."
+          },
+          {
+            topic: "Disequazione di secondo grado",
+            title: "Disequazione di secondo grado",
+            prompt: "Qual è la soluzione della disequazione?",
+            formula: "x<sup>2</sup> − 4 ≥ 0",
+            options: ["−2 ≤ x ≤ 2", "x ≤ −2 oppure x ≥ 2", "x < −2 oppure x > 2", "x ≥ 2"],
+            correct: 1,
+            explanation: "x² − 4 è maggiore o uguale a zero all’esterno dell’intervallo compreso tra −2 e 2, includendo gli estremi."
+          },
+          {
+            topic: "Disequazioni irrazionali",
+            title: "Sistema di disequazioni irrazionali",
+            prompt: "Quali valori reali di x soddisfano entrambe le disequazioni?",
+            formula: sistema(`${radice("x − 1")} ≤ 2`, `${radice("5 − x")} > 1`),
+            options: ["1 ≤ x < 4", "1 ≤ x ≤ 5", "x < 4", "4 < x ≤ 5"],
+            correct: 0,
+            explanation: "La prima disequazione richiede 1 ≤ x ≤ 5; la seconda richiede x < 4. La loro intersezione è 1 ≤ x < 4."
+          }
+        ]
+      },
+
+      universita: {
+        title: "Verso il primo anno universitario",
+        description: "Il test non assegna un punteggio. Per i grafici e i passaggi più lunghi usa carta e penna; se un argomento non è stato svolto, indicalo senza considerarlo una mancanza.",
+        questions: [
+          {
+            topic: "Notazione scientifica",
+            title: "Notazione scientifica",
+            prompt: "Qual è il risultato dell’operazione?",
+            formula: `${frazione("6 × 10<sup>−4</sup>", "3 × 10<sup>2</sup>")}`,
+            options: ["2 × 10<sup>−2</sup>", "2 × 10<sup>6</sup>", "2 × 10<sup>−6</sup>", "18 × 10<sup>−2</sup>"],
+            correct: 2,
+            explanation: "Dividendo le potenze di 10, gli esponenti si sottraggono: −4 − 2 = −6. Il risultato è 2 × 10⁻⁶."
+          },
+          {
+            topic: "Radicali e valore assoluto",
+            title: "Radicali e valore assoluto",
+            prompt: "Per ogni numero reale x, a quale espressione è uguale quella seguente?",
+            formula: radice("x<sup>2</sup>"),
+            options: ["x", "|x|", "−x", "±x"],
+            correct: 1,
+            explanation: "La radice quadrata principale è sempre non negativa; per questo √(x²) = |x|."
+          },
+          {
+            topic: "Frazioni algebriche",
+            title: "Frazioni algebriche",
+            prompt: "Qual è la forma semplificata della frazione algebrica?",
+            formula: frazione("x<sup>2</sup> − 9", "x<sup>2</sup> − 3x"),
+            options: [
+              `${frazione("x + 3", "x")}, con x diverso da 0`,
+              "x + 3, con x diverso da 3",
+              `${frazione("x − 3", "x")}, con x diverso da 0 e da 3`,
+              `${frazione("x + 3", "x")}, con x diverso da 0 e da 3`
+            ],
+            correct: 3,
+            explanation: "Si semplifica il fattore x − 3, ma restano escluse entrambe le condizioni originarie: x ≠ 0 e x ≠ 3."
+          },
+          {
+            topic: "Equazione irrazionale",
+            title: "Equazione irrazionale",
+            prompt: "Quali sono le soluzioni reali dell’equazione?",
+            formula: `${radice("x + 1")} = x − 1`,
+            options: ["Soltanto x = 3", "x = 0 oppure x = 3", "Soltanto x = 0", "L’equazione non ha soluzioni reali"],
+            correct: 0,
+            explanation: "Elevando al quadrato si ottengono x = 0 e x = 3, ma x = 0 non verifica l’equazione iniziale ed è una soluzione estranea."
+          },
+          {
+            topic: "Disequazione fratta",
+            title: "Disequazione fratta",
+            prompt: "Qual è la soluzione della disequazione?",
+            formula: `${frazione("x − 1", "x + 2")} > 0`,
+            options: ["−2 < x < 1", "x ≤ −2 oppure x ≥ 1", "x < −2 oppure x > 1", "x > 1"],
+            correct: 2,
+            explanation: "La frazione è positiva quando numeratore e denominatore hanno lo stesso segno: x < −2 oppure x > 1."
+          },
+          {
+            topic: "Disequazioni di secondo grado",
+            title: "Sistema di disequazioni di secondo grado",
+            prompt: "Quali numeri reali soddisfano contemporaneamente le due disequazioni?",
+            formula: sistema("2x<sup>2</sup> − x − 3 ≥ 0", "x<sup>2</sup> − 4x + 3 < 0"),
+            options: ["−1 ≤ x ≤ 1", `${frazione("3", "2")} ≤ x < 3`, "1 < x < 3", `x ≤ −1 oppure x ≥ ${frazione("3", "2")}`],
+            correct: 1,
+            explanation: "La prima disequazione richiede x ≤ −1 oppure x ≥ 3/2; la seconda richiede 1 < x < 3. L’intersezione è 3/2 ≤ x < 3."
+          },
+          {
+            topic: "Dominio di una funzione",
+            title: "Dominio di una funzione",
+            prompt: "La funzione presenta al numeratore la radice quadrata di x − 1 e al denominatore x − 3. Qual è il suo dominio?",
+            formula: frazione(radice("x − 1"), "x − 3"),
+            options: ["x ≥ 1", "x > 1, con x diverso da 3", "x ≥ 1, con x diverso da 3", "Tutti i numeri reali diversi da 3"],
+            correct: 2,
+            explanation: "La radice richiede x ≥ 1, mentre il denominatore impone x ≠ 3."
+          },
+          {
+            topic: "Funzione esponenziale",
+            title: "Funzione esponenziale",
+            prompt: "Prima di rispondere, prova a tracciare a mano libera un grafico qualitativo di y = eˣ. Quale descrizione è corretta?",
+            options: [
+              "È definita per ogni numero reale, è sempre positiva, passa per il punto (0, 1) ed è crescente.",
+              "È definita soltanto per x > 0 ed è sempre positiva.",
+              "Passa per l’origine e assume valori negativi quando x < 0.",
+              "È definita per ogni numero reale, ma vale zero quando x = 0."
+            ],
+            correct: 0,
+            explanation: "eˣ è definita per ogni x reale, passa per (0, 1) e non assume mai valori nulli o negativi."
+          },
+          {
+            topic: "Funzione logaritmica",
+            title: "Funzione logaritmica",
+            prompt: "Prima di rispondere, prova a tracciare a mano libera un grafico qualitativo di y = ln(x). Quale descrizione è corretta?",
+            options: [
+              "È definita per tutti i numeri reali diversi da zero ed è sempre crescente.",
+              "È definita per x > 0 ed è sempre positiva.",
+              "È definita per x > 0, passa per il punto (1, 0), è negativa quando 0 < x < 1 e positiva quando x > 1.",
+              "È definita per x ≥ 0 e passa per l’origine."
+            ],
+            correct: 2,
+            explanation: "ln(x) è definito soltanto per x > 0, ma il suo segno cambia attraversando x = 1."
+          },
+          {
+            topic: "Funzione goniometrica",
+            title: "Funzione goniometrica",
+            prompt: "Considerando gli angoli espressi in radianti, prova a tracciare a mano libera il grafico di y = sin(x) nell’intervallo 0 ≤ x ≤ 2π. Quale descrizione corrisponde al grafico?",
+            options: [
+              "La funzione è sempre non negativa e si annulla per x = 0, x = π e x = 2π.",
+              "Parte da zero, raggiunge 1 per x = π/2, torna a zero per x = π, raggiunge −1 per x = 3π/2 e torna a zero per x = 2π.",
+              "Parte dal valore 1, si annulla per x = π/2 e raggiunge −1 per x = π.",
+              "Parte da zero e cresce continuamente fino al valore 1."
+            ],
+            correct: 1,
+            explanation: "Nell’intervallo 0–2π il seno completa un periodo: zero, massimo, zero, minimo e nuovamente zero."
+          },
+          {
+            topic: "Geometria analitica",
+            title: "Geometria analitica",
+            prompt: "Quali sono il centro e il raggio della circonferenza?",
+            formula: "x<sup>2</sup> + y<sup>2</sup> − 4x + 2y − 4 = 0",
+            options: ["Centro (−2, 1) e raggio 3", "Centro (2, −1) e raggio 9", "Centro (4, −2) e raggio 4", "Centro (2, −1) e raggio 3"],
+            correct: 3,
+            explanation: "Completando i quadrati si ottiene (x − 2)² + (y + 1)² = 9: il centro è (2, −1) e il raggio è 3."
+          },
+          {
+            topic: "Problema applicato",
+            title: "Problema applicato",
+            prompt: "Una popolazione iniziale di 800 batteri raddoppia ogni 3 ore. Indicando con t il tempo espresso in ore, quale funzione descrive il numero di batteri?",
+            options: ["N(t) = 800 + 2t/3", "N(t) = 800 × 2<sup>t/3</sup>", "N(t) = 800 × 2<sup>3t</sup>", "N(t) = 800 × (t/3)<sup>2</sup>"],
+            correct: 1,
+            explanation: "A ogni intervallo di 3 ore il numero viene moltiplicato per 2; il numero di intervalli trascorsi è t/3."
+          },
+          {
+            topic: "Limiti",
+            title: "Limite",
+            prompt: "Calcola il limite, per x che tende a 2, della frazione seguente.",
+            formula: `<span class="math-limit"><span>lim</span><small>x → 2</small></span>${frazione("x<sup>2</sup> − 4", "x − 2")}`,
+            options: ["Il limite vale 0", "Il limite non esiste", "Il limite vale 4", "Il limite vale 2"],
+            correct: 2,
+            explanation: "Per x ≠ 2 la frazione si semplifica in x + 2. La funzione non è definita in x = 2, ma il limite esiste e vale 4."
+          },
+          {
+            topic: "Derivate",
+            title: "Significato della derivata",
+            prompt: "Se una funzione f è derivabile nel punto x₀, che cosa rappresenta geometricamente e fisicamente il valore f′(x₀)?",
+            options: [
+              "Il coefficiente angolare della retta tangente e la velocità istantanea di variazione della funzione.",
+              "Il valore assunto dalla funzione nel punto x₀.",
+              "L’area compresa tra il grafico e l’asse x.",
+              "La variazione media della funzione su un intervallo."
+            ],
+            correct: 0,
+            explanation: "La derivata nel punto è il coefficiente angolare della tangente e misura la variazione istantanea della funzione."
+          },
+          {
+            topic: "Integrali",
+            title: "Integrale per parti",
+            prompt: "Supponendo x > 0, calcola mediante integrazione per parti.",
+            formula: "∫ ln(x) dx",
+            options: ["x ln(x) − x + C", "x ln(x) + x + C", "[ln(x)]<sup>2</sup>/2 + C", "1/x + C"],
+            correct: 0,
+            explanation: "Si considera implicitamente dv = 1 dx e si pone u = ln(x). Si ottiene ∫ln(x)dx = x ln(x) − x + C."
+          }
+        ]
+      }
+    };
+
+    function elencoArgomenti(results, status, emptyText) {
+      const topics = results.filter((item) => item.status === status).map((item) => item.topic);
+      if (!topics.length) return `<p>${emptyText}</p>`;
+      return `<ul>${topics.map((topic) => `<li>${topic}</li>`).join("")}</ul>`;
+    }
+
+    function inizializzaTest(root, test) {
+      root.innerHTML = `
+        <div class="test-intro" data-role="intro">
+          <h3>${test.title}</h3>
+          <p>${test.description}</p>
+          <p class="test-privacy">Le risposte rimangono in questa pagina e non vengono inviate o salvate.</p>
+          <button class="btn" type="button" data-action="start">INIZIA IL TEST</button>
+        </div>
+
+        <div class="test-run" data-role="run" hidden>
+          <div class="test-progress-row">
+            <span data-role="progress-label">Domanda 1</span>
+            <progress data-role="progress" value="1" max="${test.questions.length}"></progress>
+          </div>
+          <article class="test-question-card">
+            <span class="tag" data-role="topic"></span>
+            <h3 class="test-question-title" data-role="question-title" tabindex="-1"></h3>
+            <div class="test-question-text" data-role="question-text"></div>
+            <fieldset class="test-options" data-role="options">
+              <legend class="sr-only">Scegli una risposta</legend>
+            </fieldset>
+            <div class="test-feedback" data-role="feedback" aria-live="polite" hidden></div>
+            <div class="test-actions">
+              <button class="btn" type="button" data-action="verify" disabled>VERIFICA LA RISPOSTA</button>
+              <button class="btn" type="button" data-action="next" hidden>DOMANDA SUCCESSIVA</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="test-summary" data-role="summary" hidden>
+          <h3 data-role="summary-title" tabindex="-1">Il tuo riepilogo, senza voto</h3>
+          <p>Il riepilogo distingue gli argomenti riconosciuti, quelli da riprendere e quelli non ancora affrontati. Non esprime un giudizio sulla persona né garantisce un risultato futuro.</p>
+          <div class="test-summary-grid" data-role="summary-grid"></div>
+          <p class="test-privacy">Le risposte non sono state inviate né memorizzate.</p>
+          <button class="btn secondary" type="button" data-action="restart">RIFAI IL TEST</button>
+        </div>
+      `;
+
+      const intro = root.querySelector('[data-role="intro"]');
+      const run = root.querySelector('[data-role="run"]');
+      const summary = root.querySelector('[data-role="summary"]');
+      const progressLabel = root.querySelector('[data-role="progress-label"]');
+      const progress = root.querySelector('[data-role="progress"]');
+      const topic = root.querySelector('[data-role="topic"]');
+      const questionTitle = root.querySelector('[data-role="question-title"]');
+      const questionText = root.querySelector('[data-role="question-text"]');
+      const options = root.querySelector('[data-role="options"]');
+      const feedback = root.querySelector('[data-role="feedback"]');
+      const verifyButton = root.querySelector('[data-action="verify"]');
+      const nextButton = root.querySelector('[data-action="next"]');
+      const summaryGrid = root.querySelector('[data-role="summary-grid"]');
+      const summaryTitle = root.querySelector('[data-role="summary-title"]');
+
+      let current = 0;
+      let results = [];
+
+      function mostraDomanda() {
+        const question = test.questions[current];
+        const allOptions = [...question.options, NON_AFFRONTATO];
+
+        progressLabel.textContent = `Domanda ${current + 1} di ${test.questions.length}`;
+        progress.value = current + 1;
+        topic.textContent = question.topic;
+        questionTitle.textContent = `Domanda ${current + 1} · ${question.title}`;
+        questionText.innerHTML = `<p>${question.prompt}</p>${question.formula ? `<div class="test-formula">${question.formula}</div>` : ""}`;
+        options.innerHTML = `<legend class="sr-only">Scegli una risposta</legend>` + allOptions.map((option, index) => {
+          const inputId = `${root.dataset.testId}-q${current}-o${index}`;
+          return `
+            <label class="test-option" for="${inputId}">
+              <input id="${inputId}" type="radio" name="${root.dataset.testId}-q${current}" value="${index}">
+              <span class="test-option-letter">${LETTERE[index]}</span>
+              <span class="test-option-text">${option}</span>
+            </label>
+          `;
+        }).join("");
+
+        options.querySelectorAll('input[type="radio"]').forEach((input) => {
+          input.addEventListener("change", () => {
+            verifyButton.disabled = false;
+          });
+        });
+
+        feedback.hidden = true;
+        feedback.className = "test-feedback";
+        feedback.innerHTML = "";
+        verifyButton.hidden = false;
+        verifyButton.disabled = true;
+        nextButton.hidden = true;
+        nextButton.textContent = current === test.questions.length - 1 ? "VEDI IL RIEPILOGO" : "DOMANDA SUCCESSIVA";
+        questionTitle.focus();
+      }
+
+      function mostraRiepilogo() {
+        run.hidden = true;
+        summary.hidden = false;
+        summaryGrid.innerHTML = `
+          <div class="test-summary-card recognized">
+            <h4>Argomenti riconosciuti</h4>
+            ${elencoArgomenti(results, "recognized", "Nessun argomento in questa sezione.")}
+          </div>
+          <div class="test-summary-card review">
+            <h4>Da riprendere con calma</h4>
+            ${elencoArgomenti(results, "review", "Nessun argomento in questa sezione.")}
+          </div>
+          <div class="test-summary-card not-studied">
+            <h4>Non ancora affrontati</h4>
+            ${elencoArgomenti(results, "not-studied", "Nessun argomento in questa sezione.")}
+          </div>
+        `;
+        summaryTitle.focus();
+      }
+
+      root.querySelector('[data-action="start"]').addEventListener("click", () => {
+        current = 0;
+        results = [];
+        intro.hidden = true;
+        summary.hidden = true;
+        run.hidden = false;
+        mostraDomanda();
+      });
+
+      verifyButton.addEventListener("click", () => {
+        const selected = options.querySelector('input[type="radio"]:checked');
+        if (!selected) return;
+
+        const question = test.questions[current];
+        const selectedIndex = Number(selected.value);
+        let status;
+
+        if (selectedIndex === 4) {
+          status = "not-studied";
+          feedback.classList.add("not-studied");
+          feedback.innerHTML = "<strong>Argomento non ancora affrontato.</strong> Lo registriamo senza attribuirgli alcun valore negativo.";
+        } else if (selectedIndex === question.correct) {
+          status = "recognized";
+          feedback.classList.add("recognized");
+          feedback.innerHTML = `<strong>Passaggio riconosciuto.</strong> ${question.explanation}`;
+        } else {
+          status = "review";
+          feedback.classList.add("review");
+          feedback.innerHTML = `<strong>Un punto da riprendere.</strong> ${question.explanation}`;
+        }
+
+        results[current] = { topic: question.topic, status };
+        options.querySelectorAll('input[type="radio"]').forEach((input) => {
+          input.disabled = true;
+        });
+        feedback.hidden = false;
+        verifyButton.hidden = true;
+        nextButton.hidden = false;
+        nextButton.focus();
+      });
+
+      nextButton.addEventListener("click", () => {
+        if (current < test.questions.length - 1) {
+          current += 1;
+          mostraDomanda();
+        } else {
+          mostraRiepilogo();
+        }
+      });
+
+      root.querySelector('[data-action="restart"]').addEventListener("click", () => {
+        current = 0;
+        results = [];
+        summary.hidden = true;
+        run.hidden = true;
+        intro.hidden = false;
+        root.querySelector('[data-action="start"]').focus();
+      });
+    }
+
+    document.querySelectorAll(".orientation-test").forEach((root) => {
+      const test = tests[root.dataset.testId];
+      if (test) inizializzaTest(root, test);
+    });
+  })();
+</script>
 
 </body>
 </html>
