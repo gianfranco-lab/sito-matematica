@@ -263,6 +263,16 @@ footer{padding:45px 7vw;text-align:center;border-top:1px solid var(--line);color
   overflow-x:auto;
 }
 
+/* Esponenti nei test: apice ben leggibile anche nei browser che
+   rendono il tag <sup> troppo vicino alla linea di base */
+.orientation-test sup{
+  position:relative;
+  top:-.52em;
+  vertical-align:baseline;
+  font-size:.68em;
+  line-height:0;
+}
+
 .math-frac{
   display:inline-grid;
   grid-template-rows:auto auto;
