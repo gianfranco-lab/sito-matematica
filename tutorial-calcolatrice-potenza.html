@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Tutorial 01 – Scrivere bene un’espressione</title>
-<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Igwx4dTxwox2TxIAd0ofJ9mhBcSsqaeNuz_5IK7uurwAhw0Lp3vhyiA5GzNoqDLm7a2QLpWhLAG2EddCg0gpdmCZ0-bu6WHdQ2rjrUJ2tdu120Xct9wwaOEKyxWEuIdjqeRfduaQaDCrmN3OMMxa2SZtcwx1_bOKdqIUpjjPCSDaLfwmiCtQE_MIvhFDmwm3U7k5JwoupoII_6ZzdQP7rFMbrkxfbnzGO1LNrOryTdkQIStNKgBCdaVS0iIncfCVSTkox2YsF_8ry5_dmkrnavl0GCDw94pcg_kBcDRcrL_lgJ_Ebys0mamnVkU6bkx6lVJyn8J7b7Wt1297WenElmcE9WKrESWDHjtDNw6l5nw" charset="UTF-8"></script><style>
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=D_ibbeVyRD_9pvv7LrfyaDCMH-Uz3f-RvjlqIEKk0AFRu_OzkVfbduk95xSX8g2BVhzuEymzT0CiLWXetVrcK32OA74iSwJT0-zf7z3702jpXrkfwjHs7w_mw5fSiBV5T8D0ZiiCQ9tuWM0pV_MWoiwP1bmE5Gh4dF4_5skoVaV8hc2D1tS0ir1bq8W36QXRpCYowSdzjo8iAbWO8fOeLtUqKCjZNghbWGaL4W9RXZLd7xMYNKs8d5bE4VLaUq690U3DDl_7KbzpfcXewyDW610b-4IT2Jfoy19iwk2vmyr7vfqUqyCSrCP8bACm_Ofeuqfp48_sb2tMWkeSfq2votXo7RIc6rgd_Ct1Zss7xmQ" charset="UTF-8"></script><style>
 :root {
   --paper:#efe1bd;
   --paper-deep:#e6d2a4;
@@ -96,62 +96,37 @@ h2 {
 }
 .formula-stage {
   margin:18px auto;
-  padding:28px 18px 30px;
+  padding:24px 18px;
   max-width:830px;
   text-align:center;
   background:#fffdf7;
   border:1px solid rgba(125,101,62,.18);
   border-radius:16px 18px 15px 19px;
   box-shadow:0 6px 17px rgba(83,63,36,.07);
+  overflow:hidden;
 }
-.formula {
-  font-family:Cambria,"Times New Roman",serif;
-  font-size:clamp(27px,5.3vw,45px);
-  color:#26221e;
-  white-space:nowrap;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:14px;
+.formula-reference {
+  display:block;
+  width:min(100%,520px);
+  height:auto;
+  margin:0 auto;
 }
-.ratio {
-  display:inline-grid;
-  grid-template-rows:auto 2px auto;
-  vertical-align:middle;
-  text-align:center;
-  min-width:52px;
+.formula,
+.ratio,
+.root-formula,
+.root-sign,
+.root-body,
+.mathfrac {
+  display:none;
 }
 .ratio .bar,.mathfrac .bar { height:2px;background:#27231f; }
 .formula-equals { font-size:1.05em; }
-.root-formula {
-  display:inline-flex;
-  align-items:flex-start;
-  vertical-align:middle;
-}
-.root-sign {
-  width:74px;
-  height:124px;
-  margin-right:-2px;
-  transform:translateY(0);
-  flex:0 0 auto;
-}
 .root-sign svg { width:100%; height:100%; display:block; }
-.root-body {
-  display:inline-flex;
-  flex-direction:column;
-  align-items:stretch;
-}
 .root-bar {
   height:3px;
   background:#27231f;
   width:100%;
   margin-bottom:6px;
-}
-.mathfrac {
-  display:inline-grid;
-  grid-template-rows:auto 2px auto;
-  text-align:center;
-  line-height:1.3;
 }
 .prompt {
   text-align:center;
@@ -264,7 +239,7 @@ h2 {
   top:14.9%;
   width:70.6%;
   height:14.9%;
-  padding:8px 12px;
+  padding:10px 12px;
   overflow-x:auto;
   overflow-y:hidden;
   color:#17352e;
@@ -279,13 +254,13 @@ h2 {
 .screen-content {
   width:max-content;
   min-width:100%;
-  min-height:74%;
+  min-height:100%;
   flex:0 0 auto;
   display:flex;
   align-items:center;
   justify-content:flex-end;
   gap:10px;
-  font-size:clamp(20px,5vw,34px);
+  font-size:clamp(19px,4.4vw,30px);
   font-weight:600;
   flex-wrap:nowrap;
 }
@@ -296,46 +271,68 @@ h2 {
 }
 .fraction {
   display:inline-grid;
-  grid-template-rows:auto 2px auto;
-  min-width:52px;
+  grid-template-rows:minmax(27px,auto) 2px minmax(27px,auto);
+  min-width:92px;
   align-items:center;
   justify-items:stretch;
   text-align:center;
-  padding:2px 5px;
+  line-height:1;
+  padding:0 4px;
 }
 .frac-part {
-  min-height:30px;
-  padding:1px 6px;
+  min-height:27px;
+  padding:0 7px;
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:4px;
+  border-radius:0;
+  white-space:nowrap;
 }
 .frac-line { height:2px;background:#17352e;width:100%; }
 .frac-part.active {
-  background:rgba(23,53,46,.12);
-  box-shadow:inset 0 -2px 0 rgba(23,53,46,.55);
+  background:transparent;
+  box-shadow:none;
 }
-.sqrt-wrap {
-  display:inline-flex;
+.screen-root {
+  display:grid;
+  grid-template-columns:34px auto;
+  grid-template-rows:2px auto;
   align-items:stretch;
   white-space:nowrap;
 }
-.sqrt-sign-screen {
-  font-size:1.4em;
-  line-height:1;
-  padding-right:2px;
+.screen-root-sign {
+  grid-column:1;
+  grid-row:1 / 3;
+  width:34px;
+  min-height:64px;
+  align-self:stretch;
+  margin-right:-2px;
+}
+.screen-root-sign svg {
+  width:100%;
+  height:100%;
+  display:block;
+}
+.screen-root-bar {
+  grid-column:2;
+  grid-row:1;
+  height:2px;
+  background:#17352e;
+  margin-left:-2px;
+}
+.screen-root-body {
+  grid-column:2;
+  grid-row:2;
   display:flex;
-  align-items:flex-end;
-}
-.radicand-screen {
-  display:inline-flex;
   align-items:center;
-  min-height:1.6em;
-  border-top:2px solid #17352e;
-  padding:4px 4px 2px 4px;
+  justify-content:center;
+  padding-top:2px;
 }
-.radicand-screen.active { background:rgba(23,53,46,.07); }
+.screen-root-inline {
+  min-height:1.35em;
+  padding:1px 5px 2px;
+}
+.screen-root-inline.active { background:transparent; }
 .sup2 {
   font-size:70%;
   vertical-align:super;
@@ -452,8 +449,7 @@ h2 {
   main {padding-top:25px}
   .sheet {padding:20px 15px}
   .two-col {grid-template-columns:1fr}
-  .formula {font-size:clamp(22px,6.2vw,35px); gap:8px;}
-  .root-sign {width:54px;height:96px;}
+  .formula-stage {border-radius:14px;}
 }
 
 .mathfrac.t01 { min-width:430px; }
@@ -475,25 +471,7 @@ h2 {
     <p class="prompt"><span class="underline">la calcolatrice sta davvero leggendo la stessa espressione che hai scritto sul foglio?</span></p>
 
     <div class="formula-stage" aria-label="Formula di partenza">
-      <div class="formula">
-        <span class="ratio"><span>T′</span><span class="bar"></span><span>T</span></span>
-        <span class="formula-equals">=</span>
-        <span class="root-formula">
-          <span class="root-sign">
-<svg viewBox="0 0 92 132" aria-hidden="true">
-  <path d="M8 72 L22 72 L35 118 L52 12 L86 12" fill="none" stroke="#27231f" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-</span>
-          <span class="root-body">
-            <span class="root-bar"></span>
-            <span class="mathfrac t01">
-              <span>9,80 m/s²</span>
-              <span class="bar"></span>
-              <span>9,80 m/s² + 2,00 m/s²</span>
-            </span>
-          </span>
-        </span>
-      </div>
+      <img class="formula-reference" src="data:image/png;base64,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" alt="Formula di partenza: T primo fratto T uguale radice quadrata di 9,80 m su s quadrato fratto 9,80 m su s quadrato più 2,00 m su s quadrato.">
     </div>
 
     <p class="prompt">Il nostro obiettivo non è soltanto arrivare al risultato.<br>
@@ -726,6 +704,7 @@ h2 {
   function part(text, active) {
     return `${mathText(text)||'&nbsp;'}${active?'<i class="cursor"></i>':''}`;
   }
+  const ROOT_SVG = `<svg viewBox="0 0 48 82" preserveAspectRatio="none" aria-hidden="true"><path d="M3 48 L10 48 L17 74 L29 3 L48 3" fill="none" stroke="#17352e" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   function renderFraction(frac) {
     return `<span class="fraction">
       <span class="frac-part ${frac.active==='num'?'active':''}">${part(frac.num,frac.active==='num')}</span>
@@ -733,11 +712,17 @@ h2 {
       <span class="frac-part ${frac.active==='den'?'active':''}">${part(frac.den,frac.active==='den')}</span>
     </span>`;
   }
+  function renderSqrtText(text) {
+    return `<span class="screen-root"><span class="screen-root-sign">${ROOT_SVG}</span><span class="screen-root-bar"></span><span class="screen-root-body screen-root-inline active">${part(text,true)}</span></span>`;
+  }
+  function renderSqrtFraction(frac) {
+    return `<span class="screen-root"><span class="screen-root-sign">${ROOT_SVG}</span><span class="screen-root-bar"></span><span class="screen-root-body">${renderFraction(frac)}</span></span>`;
+  }
   function render() {
     let core='';
     if(state.mode==='fraction') core=renderFraction(state.fraction);
-    else if(state.mode==='sqrtText') core=`<span class="sqrt-wrap"><span class="sqrt-sign-screen">√</span><span class="radicand-screen active">${part(state.sqrtText,true)}</span></span>`;
-    else if(state.mode==='sqrtFraction') core=`<span class="sqrt-wrap"><span class="sqrt-sign-screen">√</span><span class="radicand-screen active">${renderFraction(state.sqrtFraction)}</span></span>`;
+    else if(state.mode==='sqrtText') core=renderSqrtText(state.sqrtText);
+    else if(state.mode==='sqrtFraction') core=renderSqrtFraction(state.sqrtFraction);
     else core=`<span class="normal-text">${mathText(state.expr||'0')}${state.expr?'<i class="cursor"></i>':''}</span>`;
     screen.innerHTML = core + (state.result?`<span class="equals-result">= ${esc(state.result)}</span>`:'');
     requestAnimationFrame(() => {
