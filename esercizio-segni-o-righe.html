@@ -1,0 +1,282 @@
+<!doctype html>
+<!-- Aggiornamento 2026-09-09 v2: grafici N, D, N/D e sistema a righe -->
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Grafico dei segni e sistemi di disequazioni: quale usare? | Laboratorio di matematica</title>
+  <meta name="description" content="Due esempi svolti per distinguere il grafico dei segni di una disequazione frazionaria dalle righe delle soluzioni di un sistema.">
+  <link rel="stylesheet" href="style.css?v=20260909-2">
+</head>
+<body>
+
+<nav>
+  <strong>MATEMATICA · LABORATORIO</strong>
+  <a href="index.html">Home</a>
+  <a href="chi-sono.html">Chi sono</a>
+  <a href="come-lavoro.html">Come lavoro</a>
+  <a href="matematica.html">Matematica</a>
+  <a href="dietro-la-lavagna.html">Dietro la lavagna</a>
+  <a href="contatti.html">Contatti</a>
+</nav>
+
+<main>
+  <section class="exercise-page-header">
+    <div class="eyebrow">Esercizio della settimana · Scuola superiore</div>
+    <h1>Segni oppure righe?</h1>
+    <p class="lead">
+      Due grafici che possono sembrare simili, ma rispondono a domande diverse:
+      in una frazione si combinano i segni; in un sistema si cercano le soluzioni comuni.
+    </p>
+  </section>
+
+  <section class="exercise-page-content">
+    <div class="exercise-column">
+      <aside class="exercise-why">
+        <h2>Perché questo esercizio</h2>
+        <p>
+          L’errore nasce spesso da una regola ricordata correttamente ma usata nel
+          problema sbagliato. “Meno per meno uguale più” serve nello studio del segno
+          di un prodotto o di una frazione; non trasforma due disequazioni non
+          soddisfatte nella soluzione di un sistema.
+        </p>
+      </aside>
+
+      <div class="exercise-objectives">
+        <div class="eyebrow">Obiettivo didattico</div>
+        <h2>Riconoscere la domanda prima di scegliere il grafico</h2>
+        <p>Al termine del lavoro dovrebbe risultare chiara la differenza tra:</p>
+        <ul>
+          <li>combinare i segni di numeratore e denominatore;</li>
+          <li>rappresentare separatamente le soluzioni di più disequazioni;</li>
+          <li>individuare l’intersezione, cioè la parte comune, in un sistema.</li>
+        </ul>
+      </div>
+
+      <article class="exercise-problem">
+        <div class="eyebrow">Testo dell’esercizio</div>
+        <h2>Confronta i due procedimenti</h2>
+        <p>Risolvi prima la disequazione frazionaria:</p>
+        <div class="exercise-equation" aria-label="x al quadrato meno uno fratto x meno due maggiore di zero">
+          <span class="math-frac"><span>x<sup>2</sup> − 1</span><span>x − 2</span></span> &gt; 0
+        </div>
+        <p>Risolvi poi il sistema:</p>
+        <div class="exercise-equation" aria-label="sistema formato da x al quadrato meno uno maggiore di zero e x meno due maggiore di zero">
+          <span class="math-system">
+            <span>x<sup>2</sup> − 1 &gt; 0</span>
+            <span>x − 2 &gt; 0</span>
+          </span>
+        </div>
+        <p class="exercise-instruction">
+          Le espressioni sono quasi le stesse, ma le due soluzioni non coincidono.
+          Prova a rappresentarle prima di aprire lo svolgimento.
+        </p>
+      </article>
+
+      <details class="solution-panel">
+        <summary>APRI LO SVOLGIMENTO RAGIONATO</summary>
+        <div class="solution-content">
+          <h3>1. La disequazione frazionaria: si usa il grafico dei segni</h3>
+          <div class="exercise-equation">
+            <span class="math-frac"><span>x<sup>2</sup> − 1</span><span>x − 2</span></span> &gt; 0
+          </div>
+          <p>
+            Indichiamo con N il numeratore x<sup>2</sup> − 1 e con D il denominatore
+            x − 2. I valori da collocare sul grafico sono −1 e 1, che annullano N,
+            e 2, che annulla D. Qui i segni di N e D vanno effettivamente combinati.
+          </p>
+
+          <div class="sign-chart-scroll" role="group" aria-label="Grafico dei segni della disequazione frazionaria">
+            <div class="sign-chart">
+              <div class="sign-cell sign-head sign-label"></div>
+              <div class="sign-cell sign-head"></div>
+              <div class="sign-cell sign-head critical">−1</div>
+              <div class="sign-cell sign-head"></div>
+              <div class="sign-cell sign-head critical">1</div>
+              <div class="sign-cell sign-head"></div>
+              <div class="sign-cell sign-head critical">2</div>
+              <div class="sign-cell sign-head"></div>
+
+              <div class="sign-cell sign-label">N = x<sup>2</sup> − 1</div>
+              <div class="sign-cell">+</div>
+              <div class="sign-cell critical">0</div>
+              <div class="sign-cell">−</div>
+              <div class="sign-cell critical">0</div>
+              <div class="sign-cell">+</div>
+              <div class="sign-cell critical">+</div>
+              <div class="sign-cell">+</div>
+
+              <div class="sign-cell sign-label">D = x − 2</div>
+              <div class="sign-cell">−</div>
+              <div class="sign-cell critical">−</div>
+              <div class="sign-cell">−</div>
+              <div class="sign-cell critical">−</div>
+              <div class="sign-cell">−</div>
+              <div class="sign-cell critical">0</div>
+              <div class="sign-cell">+</div>
+
+              <div class="sign-cell sign-label sign-result-label">
+                <span class="math-frac"><span>N</span><span>D</span></span>
+              </div>
+              <div class="sign-cell sign-result">−</div>
+              <div class="sign-cell sign-result critical">0</div>
+              <div class="sign-cell sign-result accepted">+</div>
+              <div class="sign-cell sign-result critical">0</div>
+              <div class="sign-cell sign-result">−</div>
+              <div class="sign-cell sign-result critical excluded" title="Valore escluso: il denominatore si annulla">∥</div>
+              <div class="sign-cell sign-result accepted">+</div>
+            </div>
+          </div>
+
+          <p>La frazione è positiva negli intervalli evidenziati:</p>
+          <div class="exercise-equation exercise-result">(−1, 1) ∪ (2, +∞)</div>
+          <p>
+            I valori −1 e 1 non appartengono alla soluzione perché rendono la
+            frazione uguale a zero; x = 2 è escluso perché annulla il denominatore.
+          </p>
+
+          <h3>2. Il sistema: si usano le righe delle soluzioni</h3>
+          <div class="exercise-equation">
+            <span class="math-system">
+              <span>x<sup>2</sup> − 1 &gt; 0</span>
+              <span>x − 2 &gt; 0</span>
+            </span>
+          </div>
+          <p>Le due disequazioni, considerate separatamente, danno:</p>
+          <div class="exercise-equation">
+            x &lt; −1 oppure x &gt; 1
+            &nbsp;;&nbsp; e &nbsp;&nbsp;
+            x &gt; 2
+          </div>
+          <p>
+            Ora non dobbiamo moltiplicare nulla: rappresentiamo le due soluzioni su
+            righe distinte e cerchiamo i valori coperti da entrambe.
+          </p>
+
+          <div class="solution-lines" role="img" aria-label="Grafico a righe: la sola parte comune alle due soluzioni è x maggiore di due">
+            <div class="solution-line-axis">
+              <div class="solution-line-label"></div>
+              <div class="solution-track axis-track">
+                <span class="axis-value value-a">−1</span>
+                <span class="axis-value value-b">1</span>
+                <span class="axis-value value-c">2</span>
+              </div>
+            </div>
+            <div class="solution-line-row">
+              <div class="solution-line-label">x<sup>2</sup> − 1 &gt; 0</div>
+              <div class="solution-track">
+                <span class="line-segment segment-left"></span>
+                <span class="line-segment segment-from-b"></span>
+                <span class="open-point point-a"></span>
+                <span class="open-point point-b"></span>
+              </div>
+            </div>
+            <div class="solution-line-row">
+              <div class="solution-line-label">x − 2 &gt; 0</div>
+              <div class="solution-track">
+                <span class="line-segment segment-from-c"></span>
+                <span class="open-point point-c"></span>
+              </div>
+            </div>
+            <div class="solution-line-row solution-common">
+              <div class="solution-line-label">Soluzioni comuni</div>
+              <div class="solution-track">
+                <span class="common-highlight segment-from-c"></span>
+                <span class="line-segment segment-from-c"></span>
+                <span class="open-point point-c"></span>
+              </div>
+            </div>
+          </div>
+
+          <p>La sola parte comune è:</p>
+          <div class="exercise-equation exercise-result">x &gt; 2</div>
+
+          <aside class="wrong-method">
+            <div class="eyebrow">Errore frequente</div>
+            <h3>Trattare il sistema come un prodotto</h3>
+            <p>
+              Il grafico seguente sostituisce, senza accorgersene, il sistema con
+              (x<sup>2</sup> − 1)(x − 2) &gt; 0. Questa è un’altra disequazione.
+            </p>
+
+            <div class="sign-chart-scroll" role="group" aria-label="Grafico dei segni del procedimento errato applicato al sistema">
+              <div class="sign-chart wrong-sign-chart">
+                <div class="sign-cell sign-head sign-label"></div>
+                <div class="sign-cell sign-head"></div>
+                <div class="sign-cell sign-head critical">−1</div>
+                <div class="sign-cell sign-head"></div>
+                <div class="sign-cell sign-head critical">1</div>
+                <div class="sign-cell sign-head"></div>
+                <div class="sign-cell sign-head critical">2</div>
+                <div class="sign-cell sign-head"></div>
+
+                <div class="sign-cell sign-label">A = x<sup>2</sup> − 1</div>
+                <div class="sign-cell">+</div>
+                <div class="sign-cell critical">0</div>
+                <div class="sign-cell false-condition">−</div>
+                <div class="sign-cell critical">0</div>
+                <div class="sign-cell">+</div>
+                <div class="sign-cell critical">+</div>
+                <div class="sign-cell">+</div>
+
+                <div class="sign-cell sign-label">B = x − 2</div>
+                <div class="sign-cell">−</div>
+                <div class="sign-cell critical">−</div>
+                <div class="sign-cell false-condition">−</div>
+                <div class="sign-cell critical">−</div>
+                <div class="sign-cell">−</div>
+                <div class="sign-cell critical">0</div>
+                <div class="sign-cell">+</div>
+
+                <div class="sign-cell sign-label sign-result-label">A · B</div>
+                <div class="sign-cell sign-result">−</div>
+                <div class="sign-cell sign-result critical">0</div>
+                <div class="sign-cell sign-result false-positive">+</div>
+                <div class="sign-cell sign-result critical">0</div>
+                <div class="sign-cell sign-result">−</div>
+                <div class="sign-cell sign-result critical">0</div>
+                <div class="sign-cell sign-result accepted">+</div>
+              </div>
+            </div>
+
+            <p class="wrong-conclusion">
+              Nell’intervallo (−1, 1) entrambe le disequazioni del sistema sono false.
+              Il prodotto di due numeri negativi è positivo, ma due condizioni false
+              non possono diventare una condizione vera del sistema.
+            </p>
+          </aside>
+        </div>
+      </details>
+
+      <div class="exercise-insights single-insight">
+        <article class="exercise-insight">
+          <div class="eyebrow">Passaggio decisivo</div>
+          <h2>Leggere il simbolo che tiene insieme le condizioni</h2>
+          <p>
+            In una frazione, numeratore e denominatore formano un’unica espressione e
+            i loro segni si combinano. Nella parentesi di un sistema, invece, ogni riga
+            deve essere vera contemporaneamente alle altre: per questo si cerca
+            l’intersezione delle soluzioni.
+          </p>
+        </article>
+      </div>
+
+      <div class="exercise-next">
+        <h2>Vuoi confrontare il tuo procedimento?</h2>
+        <p>
+          Se un passaggio ti ha creato difficoltà, puoi raccontarmi quale grafico
+          avresti scelto e da quale punto vorresti ripartire.
+        </p>
+        <div class="exercise-links">
+          <a class="btn" href="contatti.html">VAI AI CONTATTI</a>
+          <a class="btn secondary" href="dietro-la-lavagna.html">TORNA A DIETRO LA LAVAGNA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Prototipo sito V2 · contenuti in fase di progettazione</footer>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!doctype html>
+<!-- Aggiornamento 2026-09-09 v2: esercizio autonomo sulla funzione logaritmica -->
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Funzione logaritmica con frazione: dominio, segno e grafico | Laboratorio di matematica</title>
+  <meta name="description" content="Studio guidato di una funzione logaritmica con frazione: dominio, segno, limiti, asintoti, monotonia e grafico qualitativo.">
+  <link rel="stylesheet" href="style.css?v=20260909-2">
+</head>
+<body>
+
+<nav>
+  <strong>MATEMATICA · LABORATORIO</strong>
+  <a href="index.html">Home</a>
+  <a href="chi-sono.html">Chi sono</a>
+  <a href="come-lavoro.html">Come lavoro</a>
+  <a href="matematica.html">Matematica</a>
+  <a href="dietro-la-lavagna.html">Dietro la lavagna</a>
+  <a href="contatti.html">Contatti</a>
+</nav>
+
+<main>
+  <section class="exercise-page-header">
+    <div class="eyebrow">Esercizio della settimana · Primo anno universitario</div>
+    <h1>Funzione logaritmica con frazione: dominio, segno e grafico</h1>
+    <p class="lead">
+      Un esercizio in cui il primo passaggio — riconoscere l’intero argomento del
+      logaritmo — decide la correttezza di tutto lo studio successivo.
+    </p>
+  </section>
+
+  <section class="exercise-page-content">
+    <div class="exercise-column">
+      <aside class="exercise-why">
+        <h2>Perché questo esercizio</h2>
+        <p>
+          Una funzione apparentemente semplice può rivelare quanto siano solidi
+          alcuni fondamentali. Non basta ricordare che l’argomento del logaritmo
+          deve essere positivo: occorre riconoscere quale sia realmente l’argomento
+          e studiarlo nel suo insieme.
+        </p>
+      </aside>
+
+      <div class="exercise-objectives">
+        <div class="eyebrow">Obiettivo didattico</div>
+        <h2>Costruire il grafico a partire dal dominio</h2>
+        <p>Studiare una funzione logaritmica contenente una frazione, comprendendo:</p>
+        <ul>
+          <li>come determinare correttamente il dominio;</li>
+          <li>la relazione tra il segno del logaritmo e il valore del suo argomento;</li>
+          <li>come utilizzare limiti e derivata per costruire un grafico qualitativo;</li>
+          <li>perché una trasformazione familiare può restringere erroneamente il dominio.</li>
+        </ul>
+      </div>
+
+      <article class="exercise-problem">
+        <div class="eyebrow">Testo dell’esercizio</div>
+        <h2>Studia e traccia il grafico</h2>
+        <div class="exercise-equation" aria-label="effe di x uguale logaritmo naturale della frazione x meno uno fratto x più due">
+          f(x) = ln(<span class="math-frac"><span>x − 1</span><span>x + 2</span></span>)
+        </div>
+        <p class="exercise-instruction">
+          Determina dominio, intersezioni con gli assi, segno, limiti, asintoti e
+          intervalli di monotonia. Prima di aprire lo svolgimento, prova a disegnare
+          a mano libera le due parti del grafico.
+        </p>
+      </article>
+
+      <details class="solution-panel">
+        <summary>APRI LO SVOLGIMENTO RAGIONATO</summary>
+        <div class="solution-content">
+          <h3>1. Dominio</h3>
+          <p>L’argomento del logaritmo deve essere strettamente positivo:</p>
+          <div class="exercise-equation">
+            <span class="math-frac"><span>x − 1</span><span>x + 2</span></span> &gt; 0
+          </div>
+          <p>
+            I valori che separano gli intervalli sono x = −2, che annulla il
+            denominatore, e x = 1, che annulla il numeratore. La frazione è positiva
+            quando numeratore e denominatore hanno lo stesso segno.
+          </p>
+          <div class="exercise-equation">D = (−∞, −2) ∪ (1, +∞)</div>
+          <p>
+            La funzione è definita anche per x &lt; −2: in questo intervallo numeratore
+            e denominatore sono entrambi negativi, ma il loro rapporto è positivo.
+          </p>
+
+          <aside class="domain-error">
+            <div class="eyebrow">Errore frequente</div>
+            <h3>Separare troppo presto i logaritmi</h3>
+            <p>
+              Scrivere immediatamente
+              ln(<span class="math-frac"><span>x − 1</span><span>x + 2</span></span>)
+              = ln(x − 1) − ln(x + 2) e imporre x − 1 &gt; 0 e x + 2 &gt; 0.
+              Così si conserva soltanto l’intervallo x &gt; 1 e si perde erroneamente
+              tutto il ramo x &lt; −2.
+            </p>
+            <p>
+              Nel campo reale, questa proprietà può essere applicata in tale forma
+              soltanto quando entrambi i logaritmi a destra sono definiti.
+            </p>
+          </aside>
+
+          <figure class="comparison-graph">
+            <h3>Il confronto sul grafico</h3>
+            <div class="comparison-graph-scroll">
+              <div class="comparison-graph-crop">
+                <img src="grafico-funzione-logaritmica.png" alt="Grafici sovrapposti: in verde la frazione x meno uno fratto x più due, in rosso il suo logaritmo naturale" loading="lazy">
+              </div>
+            </div>
+            <figcaption>
+              In verde è rappresentato l’argomento (x − 1)/(x + 2); in rosso la
+              funzione logaritmica. Il ramo a sinistra di x = −2 rende visibile ciò
+              che si perderebbe imponendo separatamente la positività del numeratore
+              e del denominatore.
+            </figcaption>
+          </figure>
+
+          <h3>2. Intersezioni con gli assi</h3>
+          <p>Per trovare le intersezioni con l’asse x imponiamo:</p>
+          <div class="exercise-equation">
+            ln(<span class="math-frac"><span>x − 1</span><span>x + 2</span></span>) = 0
+          </div>
+          <p>
+            Il logaritmo vale zero quando il suo argomento vale 1, ma l’equazione
+            (x − 1)/(x + 2) = 1 conduce a x − 1 = x + 2, che è impossibile.
+            La funzione non interseca l’asse x. Non interseca neppure l’asse y,
+            perché x = 0 non appartiene al dominio.
+          </p>
+
+          <h3>3. Segno della funzione</h3>
+          <p>Confrontiamo l’argomento del logaritmo con 1:</p>
+          <div class="exercise-equation">
+            <span class="math-frac"><span>x − 1</span><span>x + 2</span></span> − 1
+            = <span class="math-frac"><span>−3</span><span>x + 2</span></span>
+          </div>
+          <p>
+            Per x &lt; −2 l’argomento è maggiore di 1 e f(x) &gt; 0. Per x &gt; 1
+            l’argomento è compreso tra 0 e 1 e f(x) &lt; 0.
+          </p>
+
+          <h3>4. Limiti e asintoti</h3>
+          <div class="exercise-equation">
+            lim<sub>x→−∞</sub> f(x) = 0<sup>+</sup>
+            &nbsp;;&nbsp;
+            lim<sub>x→+∞</sub> f(x) = 0<sup>−</sup>
+          </div>
+          <p>La retta y = 0 è un asintoto orizzontale.</p>
+          <div class="exercise-equation">
+            lim<sub>x→−2<sup>−</sup></sub> f(x) = +∞
+            &nbsp;;&nbsp;
+            lim<sub>x→1<sup>+</sup></sub> f(x) = −∞
+          </div>
+          <p>Le rette x = −2 e x = 1 sono asintoti verticali.</p>
+
+          <h3>5. Monotonia</h3>
+          <div class="exercise-equation">
+            f′(x) = <span class="math-frac"><span>1</span><span>x − 1</span></span>
+            − <span class="math-frac"><span>1</span><span>x + 2</span></span>
+            = <span class="math-frac"><span>3</span><span>(x − 1)(x + 2)</span></span>
+          </div>
+          <p>
+            Nei due intervalli del dominio il denominatore è positivo, quindi
+            f′(x) &gt; 0. La funzione è crescente sia in (−∞, −2) sia in (1, +∞).
+          </p>
+
+          <h3>Grafico qualitativo</h3>
+          <p>
+            Il ramo sinistro si mantiene sopra l’asse x, si avvicina a y = 0 per
+            x → −∞ e cresce fino a +∞ avvicinandosi a x = −2. Il ramo destro parte
+            da −∞ in prossimità di x = 1, cresce restando sotto l’asse x e si
+            avvicina a y = 0 per x → +∞. La funzione non raggiunge mai il valore zero.
+          </p>
+        </div>
+      </details>
+
+      <div class="exercise-insights single-insight">
+        <article class="exercise-insight">
+          <div class="eyebrow">Passaggio decisivo</div>
+          <h2>Studiare l’argomento nel suo insieme</h2>
+          <p>
+            La condizione iniziale deve essere posta sull’intera frazione,
+            (x − 1)/(x + 2) &gt; 0, non separatamente sul numeratore e sul denominatore.
+            Se il dominio è sbagliato, anche uno svolgimento successivo formalmente
+            corretto descriverà soltanto una parte della funzione.
+          </p>
+        </article>
+      </div>
+
+      <div class="exercise-next">
+        <h2>Vuoi confrontare il tuo procedimento?</h2>
+        <p>
+          Se un passaggio ti ha creato difficoltà, puoi raccontarmi come hai affrontato
+          l’esercizio e da quale punto vorresti ripartire.
+        </p>
+        <div class="exercise-links">
+          <a class="btn" href="contatti.html">VAI AI CONTATTI</a>
+          <a class="btn secondary" href="dietro-la-lavagna.html">TORNA A DIETRO LA LAVAGNA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Prototipo sito V2 · contenuti in fase di progettazione</footer>
+
+</body>
+</html>
