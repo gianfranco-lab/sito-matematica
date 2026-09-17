@@ -1,4 +1,4 @@
-/* Aggiornamento 2026-09-09 v2: impaginazione grafici segni e sistemi */
+/* Aggiornamento 2026-09-17: grafico geometrico, preservati i grafici segni e sistemi */
 :root{--ink:#1f2933;--muted:#5d6873;--paper:#f7f4ed;--card:#fffdf8;--accent:#8b5e3c;--accent2:#d7c4ae;--line:#ddd4c8}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:var(--paper);line-height:1.65}
 nav{position:sticky;top:0;z-index:10;background:rgba(247,244,237,.97);border-bottom:1px solid var(--line);padding:12px 5vw;display:flex;gap:18px;flex-wrap:wrap;align-items:center}
@@ -749,6 +749,27 @@ footer{padding:45px 7vw;text-align:center;border-top:1px solid var(--line);color
 }
 
 .comparison-graph figcaption{
+  margin-top:12px;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.55;
+}
+
+/* Grafico geometrico autonomo: nessun ritaglio o spostamento dell’immagine. */
+.geometry-graph{
+  margin:30px 0 36px;
+}
+
+.geometry-graph img{
+  display:block;
+  width:100%;
+  height:auto;
+  border:1px solid var(--line);
+  border-radius:7px;
+  background:var(--card);
+}
+
+.geometry-graph figcaption{
   margin-top:12px;
   color:var(--muted);
   font-size:.94rem;

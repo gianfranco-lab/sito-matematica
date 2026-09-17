@@ -1,0 +1,219 @@
+<!doctype html>
+<!-- Aggiornamento 2026-09-17: problema di area massima con grafico -->
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rettangolo inscritto in una parabola: area massima con le derivate | Laboratorio di matematica</title>
+  <meta name="description" content="Problema svolto sull’area massima di un rettangolo inscritto in una parabola: modello geometrico, dominio, derivata e verifica del massimo.">
+  <link rel="canonical" href="https://gianfranco-lab.github.io/sito-matematica/esercizio-rettangolo-parabola.html">
+  <link rel="stylesheet" href="style.css?v=20260917-1">
+</head>
+<body>
+
+<nav>
+  <strong>MATEMATICA · LABORATORIO</strong>
+  <a href="index.html">Home</a>
+  <a href="chi-sono.html">Chi sono</a>
+  <a href="come-lavoro.html">Come lavoro</a>
+  <a href="matematica.html">Matematica</a>
+  <a href="dietro-la-lavagna.html">Dietro la lavagna</a>
+  <a href="contatti.html">Contatti</a>
+</nav>
+
+<main>
+  <section class="exercise-page-header">
+    <div class="eyebrow">Esercizio della settimana · Quinto anno delle superiori</div>
+    <h1>Rettangolo inscritto in una parabola: area massima con le derivate</h1>
+    <p class="lead">
+      Un problema in cui la derivata è breve, ma il passaggio più importante
+      viene prima: tradurre correttamente la figura in una funzione.
+    </p>
+  </section>
+
+  <section class="exercise-page-content">
+    <div class="exercise-column">
+      <aside class="exercise-why">
+        <h2>Perché questo esercizio</h2>
+        <p>
+          Il calcolo della derivata è abbastanza breve. La vera difficoltà consiste
+          nel tradurre correttamente la figura in una funzione: se si sbaglia la
+          misura della base del rettangolo, tutto lo svolgimento successivo
+          diventa inutile.
+        </p>
+      </aside>
+
+      <div class="exercise-objectives">
+        <div class="eyebrow">Obiettivo didattico</div>
+        <h2>Dalla geometria a un problema di massimo</h2>
+        <p>Comprendere come:</p>
+        <ul>
+          <li>scegliere una variabile geometrica;</li>
+          <li>esprimere base e altezza in funzione di essa;</li>
+          <li>stabilire il dominio;</li>
+          <li>costruire la funzione area;</li>
+          <li>utilizzare la derivata per verificare l’esistenza di un massimo.</li>
+        </ul>
+      </div>
+
+      <article class="exercise-problem">
+        <div class="eyebrow">Testo dell’esercizio</div>
+        <h2>Quale rettangolo ha l’area maggiore?</h2>
+        <p>Consideriamo la parabola:</p>
+        <div class="exercise-equation">y = 4 − x<sup>2</sup></div>
+        <p>
+          Nella regione compresa tra la parabola e l’asse x è inscritto
+          un rettangolo con:
+        </p>
+        <ul>
+          <li>la base sull’asse x;</li>
+          <li>i lati paralleli agli assi cartesiani;</li>
+          <li>il centro della base coincidente con l’origine.</li>
+        </ul>
+        <p>
+          Determina le dimensioni del rettangolo di area massima e calcola
+          il valore di tale area.
+        </p>
+        <p class="exercise-instruction">
+          Prima di aprire lo svolgimento, prova a disegnare la figura e a esprimere
+          base e altezza utilizzando una sola variabile.
+        </p>
+      </article>
+
+      <details class="solution-panel">
+        <summary>APRI LO SVOLGIMENTO RAGIONATO</summary>
+        <div class="solution-content">
+          <h3>1. Scegliamo la variabile e leggiamo la figura</h3>
+          <p>Indichiamo con P il vertice superiore destro del rettangolo:</p>
+          <div class="exercise-equation">P(x, 4 − x<sup>2</sup>)</div>
+          <p>
+            Poiché il rettangolo è simmetrico rispetto all’asse y, il vertice
+            superiore sinistro ha ascissa −x.
+          </p>
+
+          <figure class="geometry-graph">
+            <img src="grafico-rettangolo-parabola-v1.png" width="1200" height="1030"
+              alt="Parabola y uguale 4 meno x al quadrato e rettangolo con base da meno x a x sull’asse orizzontale, vertici superiori Q e P sulla parabola, base 2x e altezza 4 meno x al quadrato. Il rettangolo raffigurato è un esempio, non quello di area massima."
+              loading="lazy" decoding="async">
+            <figcaption>
+              Un rettangolo di esempio, come nella figura di partenza: la base
+              va da −x a x e i vertici superiori appartengono alla parabola.
+              Il disegno non rappresenta ancora il rettangolo di area massima.
+            </figcaption>
+          </figure>
+
+          <p>La base non misura quindi x, ma:</p>
+          <div class="exercise-equation">b = x − (−x) = 2x</div>
+          <p>L’altezza è l’ordinata del punto P:</p>
+          <div class="exercise-equation">h = 4 − x<sup>2</sup></div>
+
+          <h3>2. Stabiliamo il dominio geometrico</h3>
+          <p>
+            Per avere un rettangolo con base e altezza positive deve essere
+            0 &lt; x &lt; 2. Possiamo includere anche gli estremi per studiare
+            la funzione area sull’intervallo chiuso:
+          </p>
+          <div class="exercise-equation">0 ≤ x ≤ 2</div>
+          <p>
+            Per x = 0 la base è nulla; per x = 2 è nulla l’altezza.
+            Agli estremi otteniamo quindi figure degeneri, entrambe di area zero.
+          </p>
+
+          <h3>3. Costruiamo la funzione area</h3>
+          <p>Moltiplichiamo base e altezza:</p>
+          <div class="exercise-equation">A(x) = 2x(4 − x<sup>2</sup>) = 8x − 2x<sup>3</sup></div>
+
+          <h3>4. Cerchiamo e verifichiamo il massimo</h3>
+          <p>Calcoliamo la derivata:</p>
+          <div class="exercise-equation">A′(x) = 8 − 6x<sup>2</sup></div>
+          <p>I punti stazionari soddisfano:</p>
+          <div class="exercise-equation">
+            8 − 6x<sup>2</sup> = 0
+            &nbsp;⇒&nbsp;
+            x<sup>2</sup> = <span class="math-frac"><span>4</span><span>3</span></span>
+          </div>
+          <p>Algebricamente otteniamo due valori:</p>
+          <div class="exercise-equation">
+            x = ±<span class="math-frac"><span>2</span><span>√3</span></span>
+          </div>
+          <p>
+            Nel nostro problema x è la semibase del rettangolo e deve essere
+            non negativo. Consideriamo quindi soltanto x = 2/√3.
+            Nell’intervallo geometrico:
+          </p>
+          <ul>
+            <li>A′(x) &gt; 0 per 0 &lt; x &lt; 2/√3: l’area cresce;</li>
+            <li>A′(x) &lt; 0 per 2/√3 &lt; x &lt; 2: l’area diminuisce.</li>
+          </ul>
+          <p>
+            Si tratta quindi di un massimo. Poiché A(0) = A(2) = 0,
+            il valore interno trovato è anche il massimo assoluto su [0, 2].
+          </p>
+
+          <h3>5. Calcoliamo le dimensioni e l’area</h3>
+          <p>La base misura:</p>
+          <div class="exercise-equation">
+            b = 2x = <span class="math-frac"><span>4</span><span>√3</span></span>
+          </div>
+          <p>L’altezza misura:</p>
+          <div class="exercise-equation">
+            h = 4 − x<sup>2</sup>
+            = 4 − <span class="math-frac"><span>4</span><span>3</span></span>
+            = <span class="math-frac"><span>8</span><span>3</span></span>
+          </div>
+          <p>L’area massima è:</p>
+          <div class="exercise-equation exercise-result">
+            A<sub>max</sub>
+            = <span class="math-frac"><span>4</span><span>√3</span></span>
+            · <span class="math-frac"><span>8</span><span>3</span></span>
+            = <span class="math-frac"><span>32</span><span>3√3</span></span>
+            = <span class="math-frac"><span>32√3</span><span>9</span></span>
+          </div>
+        </div>
+      </details>
+
+      <div class="exercise-insights">
+        <article class="exercise-insight">
+          <div class="eyebrow">Errore frequente</div>
+          <h2>Confondere x con l’intera base</h2>
+          <p>
+            x è l’ascissa del vertice superiore destro. Il rettangolo si estende
+            da −x a x, quindi la base misura 2x, non x.
+          </p>
+          <p>
+            Un altro errore è accettare anche il valore negativo ottenuto
+            dall’equazione A′(x) = 0, dimenticando il significato geometrico
+            della variabile.
+          </p>
+        </article>
+        <article class="exercise-insight">
+          <div class="eyebrow">Passaggio decisivo</div>
+          <h2>Prima la figura, poi la derivata</h2>
+          <p>Il passaggio più importante è costruire correttamente la funzione:</p>
+          <p>A(x) = 2x(4 − x<sup>2</sup>).</p>
+          <p>
+            La derivata può lavorare correttamente soltanto dopo che la geometria
+            è stata tradotta correttamente.
+          </p>
+        </article>
+      </div>
+
+      <div class="exercise-next">
+        <h2>Vuoi confrontare il tuo procedimento?</h2>
+        <p>
+          Se un passaggio ti ha creato difficoltà, puoi raccontarmi come hai
+          affrontato l’esercizio e da quale punto vorresti ripartire.
+        </p>
+        <div class="exercise-links">
+          <a class="btn" href="contatti.html">VAI AI CONTATTI</a>
+          <a class="btn secondary" href="dietro-la-lavagna.html">TORNA A DIETRO LA LAVAGNA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Prototipo sito V2 · contenuti in fase di progettazione</footer>
+
+</body>
+</html>
