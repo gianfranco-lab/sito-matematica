@@ -1,0 +1,225 @@
+<!doctype html>
+<!-- Aggiornamento 2026-09-21: integrale di ln(x) per parti -->
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Integrale di ln(x) per parti: esercizio svolto | Laboratorio di matematica</title>
+  <meta name="description" content="Calcolo guidato dell’integrale di ln(x) tra 1 ed e: area geometrica, integrazione per parti, scelta dei fattori e controllo degli estremi.">
+  <link rel="canonical" href="https://gianfranco-lab.github.io/sito-matematica/esercizio-integrale-logaritmo.html">
+  <link rel="stylesheet" href="style.css?v=20260921-1">
+</head>
+<body>
+
+<nav>
+  <strong>MATEMATICA · LABORATORIO</strong>
+  <a href="index.html">Home</a>
+  <a href="chi-sono.html">Chi sono</a>
+  <a href="come-lavoro.html">Come lavoro</a>
+  <a href="matematica.html">Matematica</a>
+  <a href="dietro-la-lavagna.html">Dietro la lavagna</a>
+  <a href="contatti.html">Contatti</a>
+</nav>
+
+<main>
+  <section class="exercise-page-header">
+    <div class="eyebrow">Esercizio della settimana · Primo anno universitario</div>
+    <h1>Integrale di ln(x) per parti: l’area tra 1 ed e</h1>
+    <p class="lead">
+      Un esercizio essenziale per riconoscere un prodotto che non appare scritto
+      e applicare con consapevolezza l’integrazione per parti.
+    </p>
+  </section>
+
+  <section class="exercise-page-content">
+    <div class="exercise-column">
+      <aside class="exercise-why">
+        <h2>Perché questo esercizio</h2>
+        <p>
+          L’integrale potrebbe sembrare molto semplice. Proprio per questo è utile:
+          consente di concentrarsi sulla scelta del metodo e sulla corretta valutazione
+          degli estremi, senza appesantire il ragionamento con calcoli eccessivi.
+        </p>
+      </aside>
+
+      <div class="exercise-objectives">
+        <div class="eyebrow">Obiettivo didattico</div>
+        <h2>Riconoscere il metodo prima di calcolare</h2>
+        <p>Comprendere come:</p>
+        <ul>
+          <li>interpretare un integrale definito come area;</li>
+          <li>riconoscere quando utilizzare l’integrazione per parti;</li>
+          <li>trattare ln(x) come il prodotto 1 · ln(x);</li>
+          <li>valutare correttamente una primitiva agli estremi.</li>
+        </ul>
+      </div>
+
+      <article class="exercise-problem">
+        <div class="eyebrow">Testo dell’esercizio</div>
+        <h2>Calcola l’area</h2>
+        <p>Consideriamo la funzione:</p>
+        <div class="exercise-equation">y = ln(x)</div>
+        <p>Calcola l’area della regione delimitata:</p>
+        <ul>
+          <li>dal grafico della funzione y = ln(x);</li>
+          <li>dall’asse x;</li>
+          <li>dalle rette x = 1 e x = e.</li>
+        </ul>
+        <p>
+          Motiva perché l’area può essere calcolata mediante l’integrale seguente
+          e svolgi il calcolo utilizzando l’integrazione per parti.
+        </p>
+        <div class="exercise-equation">
+          ∫<sub>1</sub><sup>e</sup> ln(x) dx
+        </div>
+        <p class="exercise-instruction">
+          Prima di aprire lo svolgimento, prova a individuare i due fattori necessari
+          per applicare l’integrazione per parti.
+        </p>
+      </article>
+
+      <details class="solution-panel">
+        <summary>APRI LO SVOLGIMENTO RAGIONATO</summary>
+        <div class="solution-content">
+          <h3>1. Dall’area all’integrale</h3>
+          <p>Nell’intervallo [1, e] la funzione ln(x) è non negativa, perché:</p>
+          <div class="exercise-equation">
+            ln(1) = 0
+            &nbsp; e &nbsp;
+            ln(x) &gt; 0 per x &gt; 1
+          </div>
+          <p>L’area richiesta coincide quindi con:</p>
+          <div class="exercise-equation">
+            A = ∫<sub>1</sub><sup>e</sup> ln(x) dx
+          </div>
+
+          <h3>2. Rendiamo visibile il prodotto</h3>
+          <p>
+            La funzione integranda non sembra essere un prodotto. Possiamo però
+            scrivere:
+          </p>
+          <div class="exercise-equation">ln(x) = 1 · ln(x)</div>
+          <p>Applichiamo la formula:</p>
+          <div class="exercise-equation">∫ u dv = uv − ∫ v du</div>
+          <p>Scegliamo:</p>
+          <div class="exercise-equation">
+            u = ln(x),
+            &nbsp;&nbsp;
+            dv = dx
+          </div>
+          <p>Di conseguenza:</p>
+          <div class="exercise-equation">
+            du = <span class="math-frac"><span>1</span><span>x</span></span> dx,
+            &nbsp;&nbsp;
+            v = x
+          </div>
+
+          <h3>3. Applichiamo la formula</h3>
+          <div class="exercise-equation">
+            ∫<sub>1</sub><sup>e</sup> ln(x) dx
+            = [x ln(x)]<sub>1</sub><sup>e</sup>
+            − ∫<sub>1</sub><sup>e</sup>
+            x · <span class="math-frac"><span>1</span><span>x</span></span> dx
+          </div>
+          <p>Semplificando:</p>
+          <div class="exercise-equation">
+            ∫<sub>1</sub><sup>e</sup> ln(x) dx
+            = [x ln(x)]<sub>1</sub><sup>e</sup>
+            − ∫<sub>1</sub><sup>e</sup> 1 dx
+          </div>
+          <p>Poiché:</p>
+          <div class="exercise-equation">
+            [x ln(x)]<sub>1</sub><sup>e</sup> = e
+            &nbsp;&nbsp; e &nbsp;&nbsp;
+            ∫<sub>1</sub><sup>e</sup> 1 dx = e − 1,
+          </div>
+          <p>segue che:</p>
+          <div class="exercise-equation exercise-result">
+            A = e − (e − 1) = 1
+          </div>
+
+          <h3>4. Controlliamo il risultato</h3>
+          <p>
+            Nell’intervallo considerato, 0 ≤ ln(x) ≤ 1. L’area deve quindi essere
+            positiva e inferiore a quella del rettangolo di base e − 1 e altezza 1:
+            il valore trovato è plausibile.
+          </p>
+
+          <aside class="domain-error">
+            <div class="eyebrow">Estensione del metodo</div>
+            <h3>Lo stesso passaggio in altri integrali</h3>
+            <p>La stessa impostazione può essere utilizzata anche per integrali come:</p>
+            <div class="exercise-equation">
+              ∫ ln(x<sup>2</sup>) dx
+              &nbsp;&nbsp; oppure &nbsp;&nbsp;
+              ∫ [ln(x)]<sup>2</sup> dx
+            </div>
+            <p>
+              Nel primo caso, scegliendo u = ln(x<sup>2</sup>) e dv = dx,
+              si ottiene du = (2/x) dx.
+            </p>
+            <p>
+              Nel secondo caso, ponendo u = [ln(x)]<sup>2</sup> e dv = dx,
+              l’integrazione per parti riconduce il calcolo all’integrale di ln(x):
+            </p>
+            <div class="exercise-equation">
+              ∫ [ln(x)]<sup>2</sup> dx
+              = x[ln(x)]<sup>2</sup> − 2∫ ln(x) dx
+            </div>
+            <p>
+              Il metodo può quindi essere applicato nuovamente, anche più volte,
+              quando la derivazione della funzione scelta rende progressivamente
+              più semplice l’integrale.
+            </p>
+            <p>
+              Occorre infine ricordare il dominio: ln(x<sup>2</sup>) richiede
+              x ≠ 0, mentre ln(x) richiede x &gt; 0.
+            </p>
+          </aside>
+        </div>
+      </details>
+
+      <div class="exercise-insights">
+        <article class="exercise-insight">
+          <div class="eyebrow">Errore frequente</div>
+          <h2>Non vedere il prodotto</h2>
+          <p>
+            Pensare che l’integrazione per parti non sia applicabile perché
+            nell’integrale compare una sola funzione.
+          </p>
+          <p>
+            Un secondo errore consiste nel valutare la primitiva x ln(x) − x
+            in x = 1 come se fosse zero. In realtà 1 · ln(1) − 1 = −1.
+          </p>
+        </article>
+        <article class="exercise-insight">
+          <div class="eyebrow">Passaggio decisivo</div>
+          <h2>Scrivere ln(x) come un prodotto</h2>
+          <p>Il punto centrale non è la formula, ma riconoscere che:</p>
+          <p>ln(x) = 1 · ln(x).</p>
+          <p>
+            Derivando il logaritmo e integrando il fattore 1, il nuovo integrale
+            diventa immediato.
+          </p>
+        </article>
+      </div>
+
+      <div class="exercise-next">
+        <h2>Vuoi confrontare il tuo procedimento?</h2>
+        <p>
+          Se un passaggio ti ha creato difficoltà, puoi raccontarmi come hai
+          affrontato l’esercizio e da quale punto vorresti ripartire.
+        </p>
+        <div class="exercise-links">
+          <a class="btn" href="contatti.html">VAI AI CONTATTI</a>
+          <a class="btn secondary" href="dietro-la-lavagna.html">TORNA A DIETRO LA LAVAGNA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Prototipo sito V2 · contenuti in fase di progettazione</footer>
+
+</body>
+</html>
