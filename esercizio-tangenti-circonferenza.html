@@ -1,0 +1,282 @@
+<!doctype html>
+<!-- Aggiornamento 2026-10-03: tangenti a una circonferenza passanti per un punto -->
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rette tangenti a una circonferenza: esercizio svolto | Laboratorio di matematica</title>
+  <meta name="description" content="Trova le rette passanti per l’origine e tangenti a una circonferenza: distanza punto-retta, discriminante e punti di tangenza.">
+  <link rel="canonical" href="https://gianfranco-lab.github.io/sito-matematica/esercizio-tangenti-circonferenza.html">
+  <link rel="stylesheet" href="style.css?v=20261003-1">
+</head>
+<body>
+
+<nav>
+  <strong>MATEMATICA · LABORATORIO</strong>
+  <a href="index.html">Home</a>
+  <a href="chi-sono.html">Chi sono</a>
+  <a href="come-lavoro.html">Come lavoro</a>
+  <a href="matematica.html">Matematica</a>
+  <a href="dietro-la-lavagna.html">Dietro la lavagna</a>
+  <a href="contatti.html">Contatti</a>
+</nav>
+
+<main>
+  <section class="exercise-page-header">
+    <div class="eyebrow">Esercizio della settimana · Quarto anno delle superiori</div>
+    <h1>Le tangenti a una circonferenza passanti per un punto</h1>
+    <p class="lead">
+      Uno stesso problema affrontato con la distanza punto-retta e con il
+      discriminante: due procedimenti diversi che esprimono la medesima
+      condizione geometrica.
+    </p>
+  </section>
+
+  <section class="exercise-page-content">
+    <div class="exercise-column">
+      <aside class="exercise-why">
+        <h2>Perché questo esercizio</h2>
+        <p>
+          Il calcolo non è particolarmente lungo, ma richiede di collegare
+          equazioni, distanze e intersezioni. È anche un buon esempio di un
+          controllo spesso dimenticato: le rette scritte come y = mx non
+          comprendono le rette verticali.
+        </p>
+      </aside>
+
+      <div class="exercise-objectives">
+        <div class="eyebrow">Obiettivo didattico</div>
+        <h2>Tradurre la tangenza in una condizione algebrica</h2>
+        <p>Comprendere come:</p>
+        <ul>
+          <li>ricavare centro e raggio dall’equazione di una circonferenza;</li>
+          <li>utilizzare la distanza tra un punto e una retta;</li>
+          <li>imporre la tangenza mediante l’annullamento del discriminante;</li>
+          <li>determinare i punti di tangenza con un sistema;</li>
+          <li>controllare separatamente l’eventuale retta verticale.</li>
+        </ul>
+      </div>
+
+      <article class="exercise-problem">
+        <div class="eyebrow">Testo dell’esercizio</div>
+        <h2>Due tangenti passanti per l’origine</h2>
+        <p>Consideriamo la circonferenza:</p>
+        <div class="exercise-equation">
+          (x − 2)<sup>2</sup> + (y − 1)<sup>2</sup> = 1.
+        </div>
+        <p>La forma canonica dell’equazione di una circonferenza è:</p>
+        <div class="exercise-equation">
+          (x − x<sub>0</sub>)<sup>2</sup> + (y − y<sub>0</sub>)<sup>2</sup> = R<sup>2</sup>,
+        </div>
+        <p>
+          dove C(x<sub>0</sub>, y<sub>0</sub>) è il centro e R è il raggio.
+          Nell’equazione data si leggono quindi C(2, 1) e R = 1.
+        </p>
+        <p>La forma generale è invece:</p>
+        <div class="exercise-equation">
+          x<sup>2</sup> + y<sup>2</sup> + ax + by + c = 0.
+        </div>
+        <p>
+          Determina le equazioni delle rette passanti per l’origine O(0, 0)
+          e tangenti alla circonferenza. Calcola poi le coordinate dei punti
+          di tangenza.
+        </p>
+        <p class="exercise-instruction">
+          Prova a risolvere il problema in due modi: con la distanza del centro
+          dalla retta e imponendo che il sistema retta-circonferenza abbia una
+          sola soluzione.
+        </p>
+      </article>
+
+      <details class="solution-panel">
+        <summary>APRI LO SVOLGIMENTO RAGIONATO</summary>
+        <div class="solution-content">
+          <h3>1. Dalla forma generale al centro e al raggio</h3>
+          <p>
+            Completiamo i quadrati nell’equazione generale:
+          </p>
+          <div class="exercise-equation">
+            (x + <span class="math-frac"><span>a</span><span>2</span></span>)<sup>2</sup>
+            + (y + <span class="math-frac"><span>b</span><span>2</span></span>)<sup>2</sup>
+            = <span class="math-frac"><span>a<sup>2</sup> + b<sup>2</sup></span><span>4</span></span> − c.
+          </div>
+          <p>Possiamo così riconoscere:</p>
+          <div class="exercise-equation">
+            C(−<span class="math-frac"><span>a</span><span>2</span></span>,
+            −<span class="math-frac"><span>b</span><span>2</span></span>)
+            &nbsp; e &nbsp;
+            R = √(<span class="math-frac"><span>a<sup>2</sup> + b<sup>2</sup></span><span>4</span></span> − c).
+          </div>
+          <p>La circonferenza assegnata, sviluppata, diventa:</p>
+          <div class="exercise-equation">
+            x<sup>2</sup> + y<sup>2</sup> − 4x − 2y + 4 = 0.
+          </div>
+          <p>
+            In questo caso a = −4, b = −2 e c = 4: ritroviamo C(2, 1)
+            e R = 1.
+          </p>
+
+          <h3>2. Primo metodo: distanza del centro dalla retta</h3>
+          <p>
+            Se una retta ha equazione ax + by + c = 0 e P(x<sub>0</sub>, y<sub>0</sub>)
+            è un punto, la loro distanza è:
+          </p>
+          <div class="exercise-equation">
+            d(P, r) =
+            <span class="math-frac">
+              <span>|ax<sub>0</sub> + by<sub>0</sub> + c|</span>
+              <span>√(a<sup>2</sup> + b<sup>2</sup>)</span>
+            </span>.
+          </div>
+          <p>
+            Una retta non verticale passante per O ha equazione y = mx, cioè
+            mx − y = 0. È tangente se la distanza del centro C(2, 1) dalla
+            retta è uguale al raggio:
+          </p>
+          <div class="exercise-equation">
+            <span class="math-frac">
+              <span>|2m − 1|</span>
+              <span>√(m<sup>2</sup> + 1)</span>
+            </span> = 1.
+          </div>
+          <p>Elevando al quadrato e semplificando otteniamo:</p>
+          <div class="exercise-equation">
+            (2m − 1)<sup>2</sup> = m<sup>2</sup> + 1
+            &nbsp; ⟹ &nbsp;
+            m(3m − 4) = 0.
+          </div>
+          <p>Quindi:</p>
+          <div class="exercise-equation exercise-result">
+            m = 0
+            &nbsp; oppure &nbsp;
+            m = <span class="math-frac"><span>4</span><span>3</span></span>.
+          </div>
+
+          <h3>3. Secondo metodo: sistema e discriminante</h3>
+          <p>Mettiamo a sistema la circonferenza e la retta generica y = mx:</p>
+          <div class="exercise-equation">
+            <span class="math-system">
+              <span>(x − 2)<sup>2</sup> + (y − 1)<sup>2</sup> = 1</span>
+              <span>y = mx</span>
+            </span>
+          </div>
+          <p>Sostituendo y = mx nell’equazione della circonferenza si ottiene:</p>
+          <div class="exercise-equation">
+            (1 + m<sup>2</sup>)x<sup>2</sup> − (4 + 2m)x + 4 = 0.
+          </div>
+          <p>
+            Una retta è tangente quando ha un solo punto in comune con la
+            circonferenza. L’equazione di secondo grado deve quindi avere
+            discriminante uguale a zero:
+          </p>
+          <div class="exercise-equation">
+            Δ = (4 + 2m)<sup>2</sup> − 16(1 + m<sup>2</sup>) = 0.
+          </div>
+          <p>Semplificando:</p>
+          <div class="exercise-equation">
+            4m(4 − 3m) = 0,
+          </div>
+          <p>
+            da cui si ritrovano m = 0 e m = 4/3. Le due rette tangenti sono:
+          </p>
+          <div class="exercise-equation exercise-result">
+            r<sub>1</sub>: y = 0
+            &nbsp;&nbsp; e &nbsp;&nbsp;
+            r<sub>2</sub>: y = <span class="math-frac"><span>4</span><span>3</span></span>x.
+          </div>
+
+          <h3>4. Controlliamo la retta verticale</h3>
+          <p>
+            Scrivendo y = mx non abbiamo considerato la retta verticale
+            passante per l’origine, cioè x = 0. La sua distanza da C(2, 1)
+            è 2, diversa dal raggio 1: non è tangente.
+          </p>
+
+          <h3>5. Troviamo i punti di tangenza</h3>
+          <p>Per la retta r<sub>1</sub>: y = 0 risolviamo:</p>
+          <div class="exercise-equation">
+            <span class="math-system">
+              <span>(x − 2)<sup>2</sup> + (y − 1)<sup>2</sup> = 1</span>
+              <span>y = 0</span>
+            </span>
+          </div>
+          <p>
+            Si ricava (x − 2)<sup>2</sup> = 0, quindi il primo punto di
+            tangenza è T<sub>1</sub>(2, 0).
+          </p>
+          <p>Per la retta r<sub>2</sub>: y = (4/3)x risolviamo:</p>
+          <div class="exercise-equation">
+            <span class="math-system">
+              <span>(x − 2)<sup>2</sup> + (y − 1)<sup>2</sup> = 1</span>
+              <span>y = <span class="math-frac"><span>4</span><span>3</span></span>x</span>
+            </span>
+          </div>
+          <p>L’equazione in x si riduce a:</p>
+          <div class="exercise-equation">
+            25x<sup>2</sup> − 60x + 36 = 0
+            &nbsp; ⟹ &nbsp;
+            (5x − 6)<sup>2</sup> = 0.
+          </div>
+          <p>
+            Pertanto x = 6/5 e y = 8/5. Il secondo punto di tangenza è
+            T<sub>2</sub>(6/5, 8/5).
+          </p>
+
+          <h3>6. Leggiamo la situazione nel piano</h3>
+          <figure class="geometry-graph tangent-graph">
+            <img src="grafico-tangenti-circonferenza.svg"
+                 alt="Circonferenza di centro C due uno, origine O, rette tangenti y uguale zero e y uguale quattro terzi x, punti di tangenza T uno e T due">
+            <figcaption>
+              Le due rette passano per O e toccano la circonferenza rispettivamente
+              in T<sub>1</sub> e T<sub>2</sub>. I raggi condotti ai punti di
+              tangenza sono perpendicolari alle rette.
+            </figcaption>
+          </figure>
+        </div>
+      </details>
+
+      <div class="exercise-insights">
+        <article class="exercise-insight">
+          <div class="eyebrow">Errore frequente</div>
+          <h2>Confondere dati e condizioni</h2>
+          <p>
+            Nella forma generale il centro non è C(a, b), ma
+            C(−a/2, −b/2). Nel secondo procedimento si annulla il
+            <em>discriminante</em> dell’equazione di secondo grado, non un
+            determinante.
+          </p>
+          <p>
+            Inoltre y = mx descrive soltanto le rette non verticali: x = 0
+            deve essere controllata a parte.
+          </p>
+        </article>
+        <article class="exercise-insight">
+          <div class="eyebrow">Passaggio decisivo</div>
+          <h2>Una sola intersezione</h2>
+          <p>
+            Le condizioni d(C, r) = R e Δ = 0 dicono la stessa cosa in due
+            linguaggi diversi: la retta ha esattamente un punto in comune con
+            la circonferenza.
+          </p>
+        </article>
+      </div>
+
+      <div class="exercise-next">
+        <h2>Vuoi confrontare il tuo procedimento?</h2>
+        <p>
+          Se un passaggio ti ha creato difficoltà, puoi raccontarmi come hai
+          affrontato l’esercizio e da quale punto vorresti ripartire.
+        </p>
+        <div class="exercise-links">
+          <a class="btn" href="contatti.html">VAI AI CONTATTI</a>
+          <a class="btn secondary" href="dietro-la-lavagna.html">TORNA A DIETRO LA LAVAGNA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Prototipo sito V2 · contenuti in fase di progettazione</footer>
+
+</body>
+</html>
